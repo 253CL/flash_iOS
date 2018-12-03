@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   # s.source_files  = "release", "release/CocoaPods/framework/*.{framework}"
-  s.vendored_frameworks =  "CL_ShanYanSDK/Classes/framework/*.framework"
+  s.vendored_frameworks =  "CL_ShanYanSDK/framework/*.framework"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
