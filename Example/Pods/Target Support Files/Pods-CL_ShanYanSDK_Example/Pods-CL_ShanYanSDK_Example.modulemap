@@ -1,0 +1,6 @@
+framework module Pods_CL_ShanYanSDK_Example {
+  umbrella header "Pods-CL_ShanYanSDK_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

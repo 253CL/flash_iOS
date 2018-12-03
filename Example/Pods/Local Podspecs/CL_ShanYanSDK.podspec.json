@@ -1,0 +1,22 @@
+{
+  "name": "CL_ShanYanSDK",
+  "version": "0.1.0",
+  "summary": "A short description of CL_ShanYanSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wanglijun311@gmail.com/CL_ShanYanSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wanglijun311@gmail.com": "CAODA19920605w"
+  },
+  "source": {
+    "git": "https://github.com/wanglijun311@gmail.com/CL_ShanYanSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CL_ShanYanSDK/Classes/**/*"
+}
