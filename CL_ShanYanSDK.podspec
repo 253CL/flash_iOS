@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CL_ShanYanSDK"
-  s.version      = "2.0.5.1.4"
+  s.version      = "2.0.5.1.5"
   s.summary      = "闪验 iOS SDK"
 
   # This description is used to generate tags and improve search results.
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   # s.source_files  = "release", "release/CocoaPods/framework/*.{framework}"
-  s.vendored_frameworks =  "framework/*.framework"
+  s.vendored_frameworks =  "*.framework"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
