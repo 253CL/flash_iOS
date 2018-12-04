@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
 
   s.name         = "CL_ShanYanSDK"
   s.version      = "2.0.6.0"
-  s.build        = "2.0.6.0.1"
   s.summary      = "闪验 iOS SDK"
 
   # This description is used to generate tags and improve search results.
