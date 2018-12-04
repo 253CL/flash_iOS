@@ -136,7 +136,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 
         'ENABLE_BITCODE' => 'NO',
         'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/CL_ShanYanSDK',
-        'OTHER_LDFLAGS' => '$(inherited) -undefined dynamic_lookup -ObjC -force_load \"$(PODS_ROOT)/CL_ShanYanSDK/framework/CL_ShanYanSDK.framework/CL_ShanYanSDK\"'
+        'OTHER_LDFLAGS' => '$(inherited) -undefined dynamic_lookup -ObjC'
       }
   # s.dependency "JSONKit", "~> 1.4"
 
