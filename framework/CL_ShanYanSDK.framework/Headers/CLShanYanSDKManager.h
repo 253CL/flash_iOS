@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)initWithAppId:(NSString *)appId AppKey:(NSString *)appKey timeOut:(NSTimeInterval)timeOut  complete:(nullable CLComplete)complete;
 
 
-+(void)preGetPhonenumber:(CLComplete)complete;
++(void)preGetPhonenumber;
 
 /**
  获取SDK预初始化完成情况（成功/失败），用户可以在将要调用闪验一键登录方法处，通过此方法获取SDK预初始化情况，对于预初始化失败的，仍可以直接调一键登录接口，由用户自行决定

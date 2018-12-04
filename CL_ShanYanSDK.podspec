@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CL_ShanYanSDK"
-  s.version      = "2.0.5.1.11"
+  s.version      = "2.0.6.0.0"
   s.summary      = "闪验 iOS SDK"
 
   # This description is used to generate tags and improve search results.
@@ -132,12 +132,14 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
+  s.user_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.pod_target_xcconfig = {
-        'FRAMEWORK_SEARCH_PATHS'   => '$(inherited) $(PODS_ROOT)/CL_ShanYanSDK',
-        'OTHER_LDFLAGS'            => '$(inherited) -undefined dynamic_lookup -ObjC -force_load \"$(PODS_ROOT)/CL_ShanYanSDK/framework/CL_ShanYanSDK.framework/CL_ShanYanSDK\"',
-        'ENABLE_BITCODE'           => 'NO'
-    }
+  s.pod_target_xcconfig = { 
+        'ENABLE_BITCODE' => 'NO',
+        'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/CL_ShanYanSDK',
+        'OTHER_LDFLAGS' => '$(inherited) -undefined dynamic_lookup -ObjC'
+      }
   # s.dependency "JSONKit", "~> 1.4"
 
 end

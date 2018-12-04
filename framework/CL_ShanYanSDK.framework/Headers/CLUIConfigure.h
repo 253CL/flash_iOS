@@ -49,12 +49,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)BOOL changeNumBtnHiden;//其他号码的显隐
 @property (nonatomic,strong)UIColor * changeNumBtnColor;//其他号码字体颜色
 @property (nonatomic,assign)CGFloat changeNumFont;//其他号码字体大小
-@property (nonatomic,assign)CGFloat loginBtnWidth;//免密登录按钮的宽
 
+//免密登录按钮
+@property (nonatomic,copy)NSString * loginBtnTitle;//免密登录按钮的文字
+
+@property (nonatomic,strong)UIColor * loginBtnTitleColor;//免密登录按钮字体颜色
+@property (nonatomic,strong)UIColor * loginBtnColor __attribute__((deprecated("(v2.0.5, v2.0.6 use loginBtnTitleColor")));//免密登录按钮字体颜色
+@property (nonatomic,assign)CGFloat loginBtnTitleFont;//免密登录按钮字体大小
+@property (nonatomic,assign)CGFloat loginBtnFont __attribute__((deprecated("(v2.0.5, v2.0.6 use loginBtnTitleFont")));//免密登录按钮字体大小
+
+@property (nonatomic,strong)NSAttributedString * loginBtnAttributedTitle;//AttributedString,如果设置了该属性，loginBtnTitle/loginBtnTitleColor/loginBtnTitleFont 将无效
+
+@property (nonatomic,assign)CGFloat loginBtnWidth;//免密登录按钮的宽
 @property (nonatomic,assign)CGFloat loginBtnHeigh;//免密登录按钮的高
 @property (nonatomic,assign)CGFloat loginBtnOffsetX;//免密登录按钮的左右偏移量
 @property (nonatomic,assign)CGFloat loginBtnOffsetY;//免密登录按钮的上下偏移量
-@property (nonatomic,strong)UIColor * loginBtnColor;//免密登录按钮字体颜色
 @property (nonatomic,strong)UIColor * loginBtnBKColor;//免密登录按钮背景颜色
 
 /**
@@ -64,7 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong)NSArray * loginBtnBgColors;//一键登录按钮渐变色
 
-@property (nonatomic,assign)CGFloat loginBtnFont;//免密登录按钮字体大小
+
+
 @property (nonatomic,assign)CGFloat otherLoginWayBtnOffsetX;//其他方式登录按钮左右偏移量
 @property (nonatomic,assign)CGFloat otherLoginWayBtnOffsetY;//其他方式登录按钮上下偏移量
 @property (nonatomic,strong)UIColor * otherLoginWayBtnTextColor;//其他方式登录按钮文字颜色
