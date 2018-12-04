@@ -133,11 +133,11 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.pod_target_xcconfig = {
-        'ENABLE_BITCODE'           => 'NO',
-        'FRAMEWORK_SEARCH_PATHS'   => '$(inherited) $(PODS_ROOT)/CL_ShanYanSDK',
-        'OTHER_LDFLAGS'            => '$(inherited) -undefined dynamic_lookup -ObjC -force_load \"$(PODS_ROOT)/CL_ShanYanSDK/framework/CL_ShanYanSDK.framework/CL_ShanYanSDK\"',
-    }
+  s.pod_target_xcconfig = { 
+        'ENABLE_BITCODE' => 'NO',
+        'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/CL_ShanYanSDK',
+        'OTHER_LDFLAGS' => '$(inherited) -undefined dynamic_lookup -ObjC -force_load \"$(PODS_ROOT)/CL_ShanYanSDK/framework/CL_ShanYanSDK.framework/CL_ShanYanSDK\"'
+      }
   # s.dependency "JSONKit", "~> 1.4"
 
 end
