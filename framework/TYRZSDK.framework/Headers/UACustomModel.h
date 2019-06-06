@@ -7,92 +7,129 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface UACustomModel : NSObject
-/*----------------------------------------授权页面-----------------------------------*/
 
-//MARK:导航栏*************
+/**
+ 版本注意事项:
+ 授权页面的各个控件的Y轴默认值都是以375*667屏幕为基准 系数 ： 当前屏幕高度/667
+ 1、当设置Y轴并有效时 偏移量OffsetY属于相对导航栏的绝对Y值
+ 2、（负数且超出当前屏幕无效）为保证各个屏幕适配,请自行设置好Y轴在屏幕上的比例（推荐:当前屏幕高度/667）
+ */
 
-/**导航栏颜色*/
+#pragma mark -----------------------------授权页面----------------------------------
+
+#pragma mark VC必传属性
+/**1、当前VC,注意:要用一键登录这个值必传*/
+@property (nonatomic,strong) UIViewController *currentVC;
+#pragma mark 自定义控件
+/**2、授权界面自定义控件View的Block*/
+@property (nonatomic,copy) void(^authViewBlock)(UIView *customView);
+/**3、授权界面背景图片*/
+@property (nonatomic,strong) UIImage *authPageBackgroundImage;
+#pragma mark 导航栏
+/**4、导航栏颜色*/
 @property (nonatomic,strong) UIColor *navColor;
-/**状态栏着色样式*/
+/**5、状态栏着色样式*/
 @property (nonatomic,assign) UIBarStyle barStyle;
-/**导航栏标题*/
+/**6、导航栏标题*/
 @property (nonatomic,strong) NSAttributedString *navText;
-/**导航返回图标*/
+/**7、导航返回图标(尺寸根据图片大小)*/
 @property (nonatomic,strong) UIImage *navReturnImg;
-/**导航栏右侧自定义控件*/
-@property (nonatomic,strong) UIBarButtonItem *navControl;
 
-//MARK:图片设置************
+/**8、导航栏自定义（适配全屏图片）*/
+@property (nonatomic,assign) BOOL navCustom;
 
-/**LOGO图片*/
+/**9、导航栏右侧自定义控件（导航栏传 UIBarButtonItem对象 自定义传非UIBarButtonItem ）*/
+@property (nonatomic,strong) id navControl;
+
+#pragma mark 图片设置
+/**10、LOGO图片*/
 @property (nonatomic,strong) UIImage *logoImg;
-/**LOGO图片宽度*/
+/**11、LOGO图片宽度*/
 @property (nonatomic,assign) CGFloat logoWidth;
-/**LOGO图片高度*/
+/**12、LOGO图片高度*/
 @property (nonatomic,assign) CGFloat logoHeight;
-/**LOGO图片偏移量*/
+/**13、LOGO图片偏移量*/
 @property (nonatomic,assign) CGFloat logoOffsetY;
-/**LOGO图片隐藏*/
+/**14、LOGO图片隐藏*/
 @property (nonatomic,assign) BOOL logoHidden;
 
-//MARK:登录按钮************
-
-/**登录按钮文本*/
+#pragma mark 登录按钮
+/**15、登录按钮文本*/
 @property (nonatomic,strong) NSString *logBtnText;
-/**登录按钮Y偏移量*/
+/**16、登录按钮Y偏移量*/
 @property (nonatomic,assign) CGFloat logBtnOffsetY;
-/**登录按钮文本颜色*/
+/**17、登录按钮文本颜色*/
 @property (nonatomic,strong) UIColor *logBtnTextColor;
-/**登录按钮背景颜色*/
-@property (nonatomic,strong) UIColor *logBtnColor;
+/**18、登录按钮背景图片添加到数组(顺序如下)
+ @[激活状态的图片,失效状态的图片,高亮状态的图片]
+*/
+@property (nonatomic,strong) NSArray *logBtnImgs;
 
-//MARK:号码框设置************
-
-/**显示旧版号码栏样式*/
-@property (nonatomic,assign) BOOL oldStyle;
-/**手机号码字体颜色*/
+#pragma mark 号码框设置
+/**19、手机号码字体颜色*/
 @property (nonatomic,strong) UIColor *numberColor;
-/**隐藏切换账号按钮*/
+/**20、手机号码字体大小*/
+@property (nonatomic,assign) CGFloat numberSize;
+/**21、隐藏切换账号按钮*/
 @property (nonatomic,assign) BOOL swithAccHidden;
-/**切换账号字体颜色*/
+/**22、切换账号字体颜色*/
 @property (nonatomic,strong) UIColor *swithAccTextColor;
-/**号码栏Y偏移量*/
+/**23、设置切换账号相对于标题栏下边缘y偏移*/
+@property (nonatomic,assign) CGFloat switchOffsetY;
+/**24、号码栏Y偏移量*/
 @property (nonatomic,assign) CGFloat numFieldOffsetY;
 
-//MARK:隐私条款************
-
-/**复选框未选中时图片*/
+#pragma mark 隐私条款
+/**25、复选框未选中时图片*/
 @property (nonatomic,strong) UIImage *uncheckedImg;
-/**复选框选中时图片*/
+/**26、复选框选中时图片*/
 @property (nonatomic,strong) UIImage *checkedImg;
-/**隐私条款名称（含书名号）*/
-@property (nonatomic,strong) NSString *appPrivacy;
-/**隐私条款名称颜色（含书名号）*/
-@property (nonatomic,strong) UIColor *appPrivacyColor;
-/**隐私栏文字颜色（不包含条款）*/
-@property (nonatomic,strong) UIColor *privacyTextColor;
-/**隐私条款链接*/
-@property (nonatomic,strong) NSString *appPrivacyURL;
-/**隐私条款Y偏移量*/
+/**27、隐私条款一:数组（务必按顺序）
+ @[条款名称,条款链接]
+ */
+@property (nonatomic,strong) NSArray *appPrivacyOne;
+/**28、隐私条款二:数组（务必按顺序）
+ @[条款名称,条款链接]
+ */
+@property (nonatomic,strong) NSArray *appPrivacyTwo;
+/**29、隐私条款名称颜色
+ @[基础文字颜色,条款颜色]
+ */
+@property (nonatomic,strong) NSArray *appPrivacyColor;
+/**30、隐私条款Y偏移量(注:此属性为与屏幕底部的距离)*/
 @property (nonatomic,assign) CGFloat privacyOffsetY;
 
-//MARK:底部标识Title************
+/**31、隐私条款check框默认状态 默认:NO */
+@property (nonatomic,assign) BOOL privacyState;
 
-/**slogan偏移量Y*/
+#pragma mark 底部标识Title
+/**32、slogan偏移量Y*/
 @property (nonatomic,assign) CGFloat sloganOffsetY;
-/**slogan文字颜色*/
+/**33、slogan文字颜色*/
 @property (nonatomic,strong) UIColor *sloganTextColor;
 
-/*----------------------------------------短信页面-----------------------------------*/
-/**短验页面导航栏标题*/
+#pragma mark -----------------------------------短信页面-----------------------------------
+
+/**34、SDK短信验证码开关
+ （默认为NO,不使用SDK提供的短验直接回调 ,YES:使用SDK提供的短验）
+ 为NO时,授权界面的切换账号按钮直接返回字典:200060 和 导航栏 “NavigationController”*/
+@property (nonatomic,assign) BOOL SMSAuthOn;
+/**35、短验页面导航栏标题*/
 @property (nonatomic,strong) NSAttributedString *SMSNavText;
-/**登录按钮文本内容*/
+/**36、登录按钮文本内容*/
 @property (nonatomic,strong) NSString *SMSLogBtnText;
-/**登录按钮文本颜色*/
+/**37、登录按钮文本颜色*/
 @property (nonatomic,strong) UIColor *SMSLogBtnTextColor;
-/**登录按钮颜色*/
-@property (nonatomic,strong) UIColor *SMSLogBtnColor;
+/**38、短验登录按钮图片请按顺序添加到数组(顺序如下)
+ @[激活状态的图片,失效状态的图片,高亮状态的图片]
+ */
+@property (nonatomic,strong) NSArray *SMSLogBtnImgs;
+/**39、获取验证码按钮图片请按顺序添加到数组(顺序如下)
+ @[激活状态的图片,失效状态的图片]
+ */
+@property (nonatomic,strong) NSArray *SMSGetCodeBtnImgs;
+/**40、短验界面背景*/
+@property (nonatomic,strong) UIImage *SMSBackgroundImage;
 
 @end

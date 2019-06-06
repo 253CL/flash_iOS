@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, CLSDKInitStutas) {
-    CLSDKInitStutasERRORIniting,//失败-未完成（正在进行中）
-    CLSDKInitStutasERRORTimeOut,//失败-超时
-    CLSDKInitStutasERRORFailure,//失败-出错
-    CLSDKInitStutasSUCCESS,//成功
+typedef NS_ENUM(NSInteger, CLSDKPrepareStutas) {
+    CLSDKPrepareStutasERRORIniting,//失败-未完成（正在进行中）
+    CLSDKPrepareStutasERRORTimeOut,//失败-超时
+    CLSDKPrepareStutasERRORFailure,//失败-出错
+    CLSDKPrepareStutasERRORNil,//失败-没有预取号
+    CLSDKPrepareStutasSUCCESS,//成功
 };
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,7 +27,7 @@ typedef void(^CLComplete)(CLCompleteResult * completeResult);
 @property (nonatomic,nullable,copy)NSDictionary * data;//SDK外层data
 @property (nonatomic,nullable,strong)NSError * error;//SDK内层Error
 
-@property (nonatomic,nullable,strong)id clModel;
+//@property (nonatomic,nullable,strong)id clModel;
 
 +(instancetype)cl_CompleteWithCode:(NSInteger)code message:(NSString *)message data:(nullable NSDictionary *)data  error:(nullable NSError *)error;
 @end

@@ -22,7 +22,7 @@ pod 'CL_ShanYanSDK'
 
 ## Author
 
-wanglijun311@gmail.com, CAODA19920605w
+app@253.com
 
 ## License
 

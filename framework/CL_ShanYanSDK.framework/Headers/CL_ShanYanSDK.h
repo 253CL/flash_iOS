@@ -4,7 +4,7 @@
 //
 //  Created by wanglijun on 2018/10/29.
 //  Copyright © 2018 wanglijun. All rights reserved.
-//
+//  Documents(闪验官方文档): http://flash.253.com/document/details?labelId=299&labelName=IOS&cateId=93&productCode=28&productName=闪验SDK
 
 #import <UIKit/UIKit.h>
 
