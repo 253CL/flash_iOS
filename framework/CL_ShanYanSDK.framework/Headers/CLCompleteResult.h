@@ -29,6 +29,12 @@ typedef void(^CLComplete)(CLCompleteResult * completeResult);
 
 //@property (nonatomic,nullable,strong)id clModel;
 
+/**
+ 是否已经拉起授权页
+ default is NO
+ */
+@property (nonatomic,assign)BOOL authPagePresented;
+
 +(instancetype)cl_CompleteWithCode:(NSInteger)code message:(NSString *)message data:(nullable NSDictionary *)data  error:(nullable NSError *)error;
 @end
 
