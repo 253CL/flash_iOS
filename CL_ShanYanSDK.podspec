@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  # s.source_files  = "release", "release/CocoaPods/framework/*.{framework}"
+  s.source_files  = 'framework/*.{bundle}'
   s.vendored_frameworks =  'framework/*.{framework}'
   # s.exclude_files = "Classes/Exclude"
 
