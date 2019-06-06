@@ -55,7 +55,6 @@
 //自定义跳转
 -(void)setLoginSuccessPage:(UIViewController *)uiController;
 
-
-//释放
+//释放SDK内部单例对象（免密登录：授权页销毁时自动释放；认证：获取到授权码后自动释放）
 -(void)ZOAURelease;
 @end

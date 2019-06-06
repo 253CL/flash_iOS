@@ -7,7 +7,7 @@
 //
 
 /**
- V 1.5.0 修复已知的bug
+ V 1.5.1 修复已知的bug
  */
 
 #import <Foundation/Foundation.h>
@@ -36,7 +36,7 @@ typedef   void (^failureHandler) (NSError * _Nonnull error);
 
 
 /**
-默认为正式环境的bundleID,需要使用测试环境的bundleID(注意：这里的测试环境，是指在天翼账号配置的测试BundleID，例如开发者使用企业证书重签名给测试人员测试，重签名之后的App的BundleID会改变），请添加这个方法，在发布APP的时候请确保没有使用该方法。
+ 初始化SDK,之后使用。默认为正式环境的bundleID,需要使用测试环境的bundleId（通常是企业证书重签名改变的bundleId），请添加这个方法，在发布APP的时候请确保没有使用该方法。
  */
 
 +(void)setTestBundleId;
@@ -47,29 +47,26 @@ typedef   void (^failureHandler) (NSError * _Nonnull error);
  */
 
 + (void)requestPreLogin:(NSTimeInterval)apiTimeoutInterval
-                      completion:(nonnull successHandler)completion
-                         failure:(nonnull failureHandler)fail;
-
-/**
- *@description 校验接口
- @param apiTimeoutInterval 接口超时时间，传0或者小于0的数，则默认为3s
- */
-
-+ (void)requestPreVerification:(NSTimeInterval)apiTimeoutInterval
-                            completion:(nonnull successHandler)completion
-                               failure:(nonnull failureHandler)fail;
+             completion:(nonnull successHandler)completion
+                failure:(nonnull failureHandler)fail;
 
 /**
  *@description 登录接口
  *@param accessCode 预取号获取d的accessCode
  */
 + (void)requestLogin:(NSString * _Nonnull)accessCode
-                  withTimeoutInterval:(NSTimeInterval)apiTimeoutInterval
-           completion:(nonnull successHandler)completion
-              failure:(nonnull failureHandler)fail;
+ withTimeoutInterval:(NSTimeInterval)apiTimeoutInterval
+          completion:(nonnull successHandler)completion
+             failure:(nonnull failureHandler)fail;
 
+/**
+ *@description 手机号校验
+ @param apiTimeoutInterval 接口超时时间，传0或者小于0的数，则默认为3s
+ */
 
-
++ (void)requestPreVerification:(NSTimeInterval)apiTimeoutInterval
+                    completion:(nonnull successHandler)completion
+                       failure:(nonnull failureHandler)fail;
 /**
  *@description 预取号
  @param apiTimeoutInterval 接口超时时间，传0或者小于0的数，则默认为3s
@@ -80,15 +77,6 @@ typedef   void (^failureHandler) (NSError * _Nonnull error);
                          failure:(nonnull failureHandler)fail  DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `requestPreLogin:completion:failure:`");
 
 /**
- *@description 校验
- @param apiTimeoutInterval 接口超时时间，传0或者小于0的数，则默认为3s
- */
-
-+ (void)getVerificationCodeWithTimeout:(NSTimeInterval)apiTimeoutInterval
-                            completion:(nonnull successHandler)completion
-                               failure:(nonnull failureHandler)fail DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `requestVerification:completion:failure:`");
-
-/**
  *@description 网络认证
  *@param accessCode 预取号获取d的accessCode
  */
@@ -96,7 +84,12 @@ typedef   void (^failureHandler) (NSError * _Nonnull error);
               withTimeoutInterval:(NSTimeInterval)apiTimeoutInterval
                        completion:(nonnull successHandler)completion
                           failure:(nonnull failureHandler)fail DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `requestLogin:completion:failure:`");
+/**
+ *@description 手机号校验
+ @param apiTimeoutInterval 接口超时时间，传0或者小于0的数，则默认为3s
+ */
 
-
-
++ (void)getVerificationCodeWithTimeout:(NSTimeInterval)apiTimeoutInterval
+                            completion:(nonnull successHandler)completion
+                               failure:(nonnull failureHandler)fail DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `requestPreVerification:completion:failure:`");
 @end

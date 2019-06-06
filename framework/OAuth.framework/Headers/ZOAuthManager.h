@@ -12,6 +12,10 @@
 
 @interface ZOAuthManager : NSObject
 
+//修改bundle名称
+-(void)setBundlePath:(NSString*)bundlePath;
+
+
 //RSA 加密
 + (NSString*) encryptWithRSA:(NSString*) content key:(NSString*)key;
 //RSA 解密

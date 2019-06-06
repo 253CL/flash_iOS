@@ -16,6 +16,8 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 @property (nonatomic,assign) ControllerType controllerType;
 /**授权页销毁是否交由app处理*/
 @property (nonatomic,assign) BOOL destroyCrollerBySelf;
+/** 授权页销魂时是否自动释放SDK内部的单例对象（默认为自动释放）*/
+@property (nonatomic,assign) BOOL isAutoRelease;
 
 //MARK:导航栏设置*************
 
