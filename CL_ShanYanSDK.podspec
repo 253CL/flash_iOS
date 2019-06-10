@@ -92,6 +92,7 @@ Pod::Spec.new do |s|
 
   # s.source_files  = "release", "release/CocoaPods/framework/*.{framework}"
   s.vendored_frameworks =  'framework/*.{framework}'
+  s.resource = 'framework/*.{bundle}'
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
