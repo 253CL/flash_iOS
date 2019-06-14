@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSNumber  * cl_navigation_backBtnHidden;
 
 @property (nonatomic,strong)NSNumber * cl_navigation_translucent;
-/**导航栏分割线 是否隐藏 default is NO*/
+/**导航栏分割线 是否隐藏 default is YES*/
 @property (nonatomic,strong)NSNumber * cl_navigation_bottomLineHidden;
 /**导航栏 文字颜色*/
 @property (nonatomic,strong)UIColor  * cl_navigation_tintColor;
