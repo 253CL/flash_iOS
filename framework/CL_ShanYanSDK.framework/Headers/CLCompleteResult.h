@@ -25,9 +25,15 @@ typedef void(^CLComplete)(CLCompleteResult * completeResult);
 @property (nonatomic,assign)NSInteger code;//SDK外层code
 @property (nonatomic,nullable,copy)NSString * message;//SDK外层msg
 @property (nonatomic,nullable,copy)NSDictionary * data;//SDK外层data
-@property (nonatomic,nullable,strong)NSError * error;//SDK内层Error
+@property (nonatomic,nullable,strong)NSError * error;//Error
 
 //@property (nonatomic,nullable,strong)id clModel;
+
+//内层
+@property (nonatomic,assign)NSInteger innerCode;//SDK内层code
+@property (nonatomic,nullable,copy)NSString * innerDesc;//SDK内层msg
+@property (nonatomic,nullable,copy)NSDictionary * innerData;//SDK外层data
+@property (nonatomic,nullable,strong)NSError * innerError;//Error
 
 /**
  是否已经拉起授权页
