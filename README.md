@@ -123,15 +123,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                           complete:(CLComplete)complete;
 ```
 
-参数描述
-
-| 参数 | 类型 | 说明 |
-| --- | --- | --- |
-| clUIConfigure  **必填** | CLUIConfigure | 授权页控件属性配置对象 |
-| timeOut **选填** | NSTimeInterval | 超时时间(内部单个请求)，单位s，传大于0有效，传小于等于0使用默认，默认10s    |
-| shanyanAuthPageListener  **选填** | CLComplete | 拉起授权页的回调 |
-| complete **必填** | CLComplete | 回调block，用于接收一键登录的结果 |
-
 使用场景
 
 - 用户进行一键登录操作时，调用一键登录方法，如果初始化成功，SDK将会拉起授权页面，用户授权后，SDK将返回取号 token给到应用客户端。
