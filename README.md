@@ -290,16 +290,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     }
 }
 ```
-
-## Author
-
-app@253.com
-
-## License
-
-CL_ShanYanSDK is available under the MIT license. See the LICENSE file for more info.
-
-
 ## Author
 
 app@253.com
