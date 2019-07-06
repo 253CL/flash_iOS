@@ -29,15 +29,6 @@ pod 'CL_ShanYanSDK' , '~> 2.2.0.3'
 +(void)initWithAppId:(NSString *)appId AppKey:(NSString *)appKey timeOut:(NSTimeInterval)timeOut  complete:(nullable CLComplete)complete;
 ```
 
-参数描述
-
-| 参数 | 是否必填 | 类型 | 说明 |
-| --- | --- | --- | --- |
-| appId  | **必填** | NSString | 闪验appID |
-| appKey  | **必填** | NSString | 闪验appKey |
-| timeOut  | **选填** | NSTimeInterval | 超时时间，单位s，传大于0有效，传小于等于0使用默认，默认10s |
-| complete  | **选填** | CLComplete | 初始化回调block，可以在此回调block中接收初始化情况，也可以不关心初始化结果 |
-
 **接口作用**<br />**<br />初始化SDK :传入用户的appID、appKey,获取本机运营商,读取缓存,获取运营商配置,初始化SDK
 
 **使用场景**<br />**
