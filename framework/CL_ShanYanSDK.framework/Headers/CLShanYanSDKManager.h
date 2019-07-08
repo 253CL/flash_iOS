@@ -18,12 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
  预初始化 Block方式
  @param appId 闪验后台申请的appId
  @param appKey 闪验后台申请的appKey
- @param timeOut 超时时间，单位s，传大于0有效，传小于等于0使用默认，默认5s
  @param complete 预初始化回调block 注：(对于预初始化失败的，之后仍可以直接调一键登录接口，SDK内部会再次尝试初始化。当用户收到此回调为失败时，之后可以自行决定是否要调用闪验一键登录，可以通过+(CLCompleteResult*)clSDKInitStutas方法获取当前预初始化状态）
  */
 +(void)initWithAppId:(NSString *)appId
               AppKey:(NSString *)appKey
-             timeOut:(NSTimeInterval)timeOut
             complete:(nullable CLComplete)complete;
 
 
@@ -38,25 +36,35 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  一键登录
  @param clUIConfigure 闪验授权页参数配置
- @param timeOut 超时时间，单位s，传大于0有效，传小于等于0使用默认，默认5s
  @param complete 回调block
  */
 +(void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
-                           timeOut:(NSTimeInterval)timeOut
                           complete:(nonnull CLComplete)complete;
+
 
 /**
  一键登录 区分拉起授权页之前和之后的回调
-
+ 
  @param clUIConfigure 闪验授权页参数配置
- @param timeOut 超时时间，单位s，传大于0有效，传小于等于0使用默认，默认5s
- @param shanyanAuthPageListener 拉起授权页的回调
- @param complete 回调block
+ @param openLoginAuthListener 拉起授权页监听
+ @param oneKeyLoginListener 一键登录监听
  */
 +(void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
-                           timeOut:(NSTimeInterval)timeOut
-           shanyanAuthPageListener:(CLComplete)shanyanAuthPageListener
-                          complete:(CLComplete)complete;
+           openLoginAuthListener:(CLComplete)openLoginAuthListener
+                          oneKeyLoginListener:(CLComplete)oneKeyLoginListener;
+
+
+/**
+ 关闭授权页
+ @param completion dismissViewcontroller`completion
+ */
++(void)finishAuthControllerCompletion:( void(^ _Nullable )(void) )completion;
+
+/**
+ 模式控制台日志输出控制（默认关闭）
+ @param enable 开关参数
+ */
++ (void)printConsoleEnable:(BOOL)enable;
 @end
 
 NS_ASSUME_NONNULL_END
