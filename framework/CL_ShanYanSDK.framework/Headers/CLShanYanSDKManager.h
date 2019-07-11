@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  预初始化 Block方式
  @param appId 闪验后台申请的appId
  @param appKey 闪验后台申请的appKey
- @param complete 预初始化回调block 注：(对于预初始化失败的，之后仍可以直接调一键登录接口，SDK内部会再次尝试初始化。当用户收到此回调为失败时，之后可以自行决定是否要调用闪验一键登录，可以通过+(CLCompleteResult*)clSDKInitStutas方法获取当前预初始化状态）
+ @param complete 预初始化回调block 
  */
 +(void)initWithAppId:(NSString *)appId
               AppKey:(NSString *)appKey

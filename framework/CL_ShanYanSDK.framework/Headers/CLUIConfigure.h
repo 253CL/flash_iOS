@@ -16,8 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 
 //授权页UI配置
-/**授权页面的各个控件的Y轴默认值都是以375*667屏幕为基准
-*/
+
 @interface CLUIConfigure : NSObject
 
 //要拉起授权页的vc [必填项] (注：SDK不持有接入方VC)
@@ -36,30 +35,53 @@ NS_ASSUME_NONNULL_BEGIN
 //导航栏
 /**导航栏 是否隐藏 BOOL default is NO, 设置优先级高于clNavigationBackgroundClear eg.@(NO)*/
 @property (nonatomic,strong)NSNumber * clNavigationBarHidden;
+@property (nonatomic,strong)NSNumber * cl_navigation_navigationBarHidden;
 /**导航栏 背景透明 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber * clNavigationBackgroundClear;
+@property (nonatomic,strong)NSNumber * cl_navigation_backgroundClear;
 /**导航栏标题*/
 @property (nonatomic,strong)NSAttributedString * clNavigationAttributesTitleText;
+@property (nonatomic,strong)NSAttributedString * cl_navigation_attributesTitleText;
 /**导航栏右侧自定义按钮*/
 @property (nonatomic,strong)UIBarButtonItem * clNavigationRightControl;
+@property (nonatomic,strong)UIBarButtonItem * cl_navigation_rightControl;
 /**导航栏左侧自定义按钮*/
 @property (nonatomic,strong)UIBarButtonItem * clNavigationLeftControl;
+@property (nonatomic,strong)UIBarButtonItem * cl_navigation_leftControl;
 /**导航栏左侧返回按钮图片*/
 @property (nonatomic,strong)UIImage   * clNavigationBackBtnImage;
+@property (nonatomic,strong)UIImage   * cl_navigation_backBtnImage;
 /**导航栏左侧自定义按钮隐藏设置，默认显示 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber  * clNavigationBackBtnHidden;
+@property (nonatomic,strong)NSNumber  * cl_navigation_backBtnHidden;
+
+/*translucent 此属性已失效*/
+@property (nonatomic,strong)NSNumber * cl_navigation_translucent;
+
 /**导航栏分割线 是否隐藏 default is NO, BOOL eg.@(YES) */
 @property (nonatomic,strong)NSNumber * clNavigationBottomLineHidden;
+@property (nonatomic,strong)NSNumber * cl_navigation_bottomLineHidden;
 /**导航栏 文字颜色*/
 @property (nonatomic,strong)UIColor  * clNavigationTintColor;
+@property (nonatomic,strong)UIColor  * cl_navigation_tintColor;
 /**导航栏 背景色 default is white*/
 @property (nonatomic,strong)UIColor  * clNavigationBarTintColor;
+@property (nonatomic,strong)UIColor  * cl_navigation_barTintColor;
 /**导航栏 背景图片*/
 @property (nonatomic,strong)UIImage  * clNavigationBackgroundImage;
+@property (nonatomic,strong)UIImage  * cl_navigation_backgroundImage;
 /**导航栏 配合背景图片设置，用来控制在不同状态下导航栏的显示(横竖屏是否显示) UIBarMetrics eg.@(UIBarMetricsCompact)*/
 @property (nonatomic,strong)NSNumber * clNavigationBarMetrics;
+@property (nonatomic,strong)NSNumber * cl_navigation_barMetrics;
 /**导航栏 导航栏底部分割线（图片）*/
 @property (nonatomic,strong)UIImage  * clNavigationShadowImage;
+@property (nonatomic,strong)UIImage  * cl_navigation_shadowImage;
+
+/**状态栏隐藏 此属性已失效*/
+@property (nonatomic,strong)NSNumber * cl_statusBar_hidden;
+/**状态栏样式 此属性已失效*/
+@property (nonatomic,strong)NSNumber * cl_statusBar_Style;
+
 /**
  *NavigationBar.barStyle：默认UIBarStyleBlack
  *Info.plist: View controller-based status bar appearance = YES
@@ -84,6 +106,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**LOGO显隐 BOOL eg.@(NO)*/
 @property (nonatomic,strong)NSNumber * clLogoHiden;
 
+/**LOGO布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
+/**LOGO高度*/
+@property (nonatomic,strong)NSNumber * clLogoHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**LOGO宽度*/
+@property (nonatomic,strong)NSNumber * clLogoWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1 ,use CLOrientationLayOut instead");
+/**LOGO偏移量*/
+@property (nonatomic,strong)NSNumber * clLogoOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1 ,use CLOrientationLayOut instead");
+/**LOGO水平偏移量*/
+@property (nonatomic,strong)NSNumber * clLogoOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1 ,use CLOrientationLayOut instead");
+
 /**手机号显示控件*/
 /**手机号颜色*/
 @property (nonatomic,strong)UIColor  * clPhoneNumberColor;
@@ -91,6 +123,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)UIFont   * clPhoneNumberFont;
 /**手机号对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
 @property (nonatomic,strong)NSNumber * clPhoneNumberTextAlignment;
+
+/**手机号布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
+/**手机号Y偏移量*/
+@property (nonatomic,strong)NSNumber * clPhoneNumberOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**手机号X偏移量*/
+@property (nonatomic,strong)NSNumber * clPhoneNumberOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**手机号高度*/
+@property (nonatomic,strong)NSNumber * clPhoneNumberHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**手机号宽度*/
+@property (nonatomic,strong)NSNumber * clPhoneNumberWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+
 
 /*一键登录按钮 控件
  注： 一键登录授权按钮 不得隐藏
@@ -111,6 +154,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSNumber * clLoginBtnCornerRadius;
 /**按钮偏边框 CGFloat eg.@(2.0)*/
 @property (nonatomic,strong)NSNumber * clLoginBtnBorderWidth;
+
+/**一键登录按钮布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
+/**按钮Y偏移量*/
+@property (nonatomic,strong)NSNumber * clLoginBtnOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**按钮偏X移量*/
+@property (nonatomic,strong)NSNumber * clLoginBtnOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**按钮width*/
+@property (nonatomic,strong)NSNumber * clLoginBtnWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**按钮height*/
+@property (nonatomic,strong)NSNumber * clLoginBtnHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
 
 /*隐私条款Privacy
  注： 运营商隐私条款 不得隐藏
@@ -139,8 +192,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**是否需要sizeToFit,设置后与宽高约束的冲突请自行考虑 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber* clAppPrivacyNeedSizeToFit;
 
+/**隐私条款布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
+/**隐私条款Y偏移量(注:此属性为条款顶部与屏幕底部的距离)*/
+@property (nonatomic,strong)NSNumber* clAppPrivacyOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+
 /*SLOGAN
- 注： 运营商品牌标签，不得隐藏
+ 注： 运营商品牌标签("中国**提供认证服务")，不得隐藏
  **/
 /**slogan文字字体*/
 @property (nonatomic,strong) UIFont   * clSloganTextFont;
@@ -148,6 +205,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIColor  * clSloganTextColor;
 /**slogan文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
 @property (nonatomic,strong) NSNumber * clSlogaTextAlignment;
+
+/**slogan文字布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
+/**sloganX偏移量*/
+@property (nonatomic,strong) NSNumber * clSloganOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**sloganY偏移量*/
+@property (nonatomic,strong) NSNumber * clSloganOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**slogan width*/
+@property (nonatomic,strong) NSNumber * clSloganWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/**slogan height*/
+@property (nonatomic,strong) NSNumber * clSloganHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+
 
 /*CheckBox
  *协议勾选框，默认选中且在协议前显示
@@ -158,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSNumber *clCheckBoxHidden;
 /**协议勾选框默认值（默认不选中）BOOL eg.@(YES)*/
 @property (nonatomic,strong) NSNumber *clCheckBoxValue;
-/**协议勾选框 尺寸 CGSize eg.[NSValue valueWithCGSize:CGSizeMake(25, 25)]*/
+/**协议勾选框 尺寸 NSValue->CGSize eg.[NSValue valueWithCGSize:CGSizeMake(25, 25)]*/
 @property (nonatomic,strong) NSValue *clCheckBoxSize;
 /**协议勾选框 UIButton.image图片缩进 UIEdgeInset eg.[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(2, 2, 2, 2)]*/
 @property (nonatomic,strong) NSValue *clCheckBoxImageEdgeInsets;
@@ -206,6 +274,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong) CLOrientationLayOut * clOrientationLayOutPortrait;
 
+
+/**默认界面配置*/
++ (CLUIConfigure *)clDefaultUIConfigure;
 @end
 
 /**横竖屏布局配置对象
@@ -283,6 +354,10 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,strong) NSNumber * clAuthWindowOrientationWidth;
 ///**窗口大小：高 float */
 //@property (nonatomic,strong) NSNumber * clAuthWindowOrientationHeight;
+
+/**默认布局配置*/
++ (CLOrientationLayOut *)clDefaultOrientationLayOut;
+
 @end
 
 NS_ASSUME_NONNULL_END
