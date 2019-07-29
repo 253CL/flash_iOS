@@ -12,8 +12,33 @@
 #import "CLCompleteResult.h"
 #import "CLUIConfigure.h"
 
+@protocol CLShanYanSDKManagerDelegate <NSObject>
+@optional
+/**
+ * 授权页面协议点击回调
+ * @param privacyName 协议名称
+ * @param index       协议位置--0:运营商协议--1:用户协议一--2:用户协议二
+ * @param telecom     当前运营商类型
+*/
+-(void)clShanYanSDKManagerWebPrivacyClicked:(NSString *_Nonnull)privacyName privacyIndex:(NSInteger)index currentTelecom:(NSString *_Nullable)telecom;
+
+/**
+ * 授权页面将要显示的回调
+ * ViewDidLoad After
+ * @param telecom     当前运营商类型
+ */
+-(void)clShanYanSDKManagerAuthPageAfterViewDidLoad:(UIView *_Nonnull)authPageView currentTelecom:(NSString *_Nullable)telecom;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 @interface CLShanYanSDKManager : NSObject
+
+
+/// 设置点击协议代理
+/// @param delegate 代理
++ (void)setCLShanYanSDKManagerDelegate:(id<CLShanYanSDKManagerDelegate>)delegate;
+
 /**
  预初始化 Block方式
  @param appId 闪验后台申请的appId
@@ -56,15 +81,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  关闭授权页
+ 注：若授权页未拉起，此方法调用无效果，complete不触发
+ @param flag dismissViewcontroller`Animated, default is YES.
  @param completion dismissViewcontroller`completion
  */
-+(void)finishAuthControllerCompletion:( void(^ _Nullable )(void) )completion;
++(void)finishAuthControllerCompletion:(void(^_Nullable)(void))completion;
++(void)finishAuthControllerAnimated:(BOOL)flag Completion:(void(^_Nullable)(void))completion;
 
 /**
  模式控制台日志输出控制（默认关闭）
  @param enable 开关参数
  */
 + (void)printConsoleEnable:(BOOL)enable;
+
 @end
 
 NS_ASSUME_NONNULL_END
