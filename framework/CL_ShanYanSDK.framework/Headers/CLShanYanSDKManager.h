@@ -27,7 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  预取号
- --初始化方法内部会自动执行一次预取号，一般情况下外部可无需调用
  --建议在即将执行一键登录的地方的前60s调用此方法，比如调一键登录的vc的viewdidload中，当初始化的预取号失败的情况下，此调用将有助于提高闪验拉起授权页的速度和成功率
  --不建议频繁的多次调用和在拉起授权页后调用
  */
@@ -59,6 +58,21 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion dismissViewcontroller`completion
  */
 +(void)finishAuthControllerCompletion:( void(^ _Nullable )(void) )completion;
+
+
+
+/**************本机认证功能***************/
+/**
+ 本机号码校验
+ 
+ @param phoneNum 输入的手机号码
+ @param complete 校验回调
+ */
++ (void)mobileCheckWithLocalPhoneNumber:(NSString *)phoneNum
+                               complete:(CLComplete)complete;
+
+/**************本机认证功能***************/
+
 
 /**
  模式控制台日志输出控制（默认关闭）

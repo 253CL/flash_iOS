@@ -179,10 +179,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSNumber * clAppPrivacyTextAlignment;
 /**运营商隐私条款书名号 默认NO 不显示 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber * clAppPrivacyPunctuationMarks;
-/**隐私条款一:需同时设置Name和UrlString eg.@[@"条款一名称":@"条款一URL"]*/
-@property (nonatomic,strong)NSArray<NSString*> * clAppPrivacyFirst;
-/**隐私条款二:需同时设置Name和UrlString eg.@[@"条款一名称":@"条款一URL"]*/
-@property (nonatomic,strong)NSArray<NSString*> * clAppPrivacySecond;
+/*
+ *隐私条款Y一:需同时设置Name和UrlString eg.@[@"条款一名称",条款一URL]
+ *@[NSSting,NSURL];
+ */
+@property (nonatomic,strong)NSArray * clAppPrivacyFirst;
+/*
+ *隐私条款二:需同时设置Name和UrlString eg.@[@"条款一名称",条款一URL]
+ *@[NSSting,NSURL];
+ */
+@property (nonatomic,strong)NSArray * clAppPrivacySecond;
 /**隐私协议WEB页面导航栏标题 NSAttributedString*/
 @property (nonatomic,strong)NSAttributedString * clAppPrivacyWebAttributesTitle;
 /**隐私协议WEB页面导航返回按钮图片*/
