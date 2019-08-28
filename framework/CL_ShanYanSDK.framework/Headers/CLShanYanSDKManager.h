@@ -88,6 +88,21 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)finishAuthControllerCompletion:(void(^_Nullable)(void))completion;
 +(void)finishAuthControllerAnimated:(BOOL)flag Completion:(void(^_Nullable)(void))completion;
 
+
+/**************本机认证功能***************/
+/**
+ 本机号码校验
+ 
+ @param phoneNum 输入的手机号码
+ @param complete 校验回调
+ */
++ (void)mobileCheckWithLocalPhoneNumber:(NSString *)phoneNum
+                               complete:(CLComplete)complete;
+
+/**************本机认证功能***************/
+
+
+
 /**
  模式控制台日志输出控制（默认关闭）
  @param enable 开关参数
