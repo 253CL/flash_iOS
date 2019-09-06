@@ -76,20 +76,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**导航栏 导航栏底部分割线（图片）*/
 @property (nonatomic,strong)UIImage  * clNavigationShadowImage;
 
-/**状态栏隐藏 此属性已失效*/
-//@property (nonatomic,strong)NSNumber * cl_statusBar_hidden;
-/**状态栏样式 此属性已失效*/
-//@property (nonatomic,strong)NSNumber * cl_statusBar_Style;
+/*状态栏样式
+ *Info.plist: View controller-based status bar appearance = YES
+ *
+ *UIStatusBarStyleDefault：状态栏显示 黑
+ *UIStatusBarStyleLightContent：状态栏显示 白
+ *UIStatusBarStyleDarkContent：状态栏显示 黑 API_AVAILABLE(ios(13.0)) = 3
+ **eg. @(UIStatusBarStyleLightContent)
+ */
+@property (nonatomic,strong)NSNumber * clPreferredStatusBarStyle;
+/*状态栏隐藏 eg.@(NO)*/
+@property (nonatomic,strong)NSNumber * clPrefersStatusBarHidden;
 
 /**
  *NavigationBar.barStyle：默认UIBarStyleBlack
  *Info.plist: View controller-based status bar appearance = YES
- *导航栏隐藏时：
- *状态栏黑白由 statusBarStyle 决定：
- *UIStatusBarStyleLightContent：状态栏显示 黑
- *UIStatusBarStyleLightContent：状态栏显示 白
- *导航栏显示时：
- *状态栏黑白由 navigation_barStyle 决定
+
  *UIBarStyleDefault：状态栏显示 黑
  *UIBarStyleBlack：状态栏显示 白
  *
@@ -184,6 +186,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**隐私协议WEB页面导航返回按钮图片*/
 @property (nonatomic,strong)UIImage * clAppPrivacyWebBackBtnImage;
 
+/*状态栏样式 默认：UIStatusBarStyleDefault*/
+@property (nonatomic,strong)NSNumber * clAppPrivacyWebPreferredStatusBarStyle;
+
 
 /*SLOGAN
  注： 运营商品牌标签("中国**提供认证服务")，不得隐藏
@@ -265,6 +270,14 @@ NS_ASSUME_NONNULL_BEGIN
  UIModalTransitionStyleFlipHorizontal 翻转显示
  */
 @property (nonatomic,strong) NSNumber * clAuthWindowModalTransitionStyle;
+
+/* UIModalPresentationStyle
+ * 若使用窗口模式，请设置为UIModalPresentationOverFullScreen 或不设置
+ * iOS13强制全屏，请设置为UIModalPresentationFullScreen
+ * UIModalPresentationAutomatic API_AVAILABLE(ios(13.0)) = -2
+ * eg. @(UIModalPresentationOverFullScreen)
+ */
+@property (nonatomic,strong) NSNumber * clAuthWindowModalPresentationStyle;
 
 /**弹窗的MaskLayer，用于自定义窗口形状*/
 @property (nonatomic,strong) CALayer * clAuthWindowMaskLayer;
