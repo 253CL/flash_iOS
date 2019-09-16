@@ -268,6 +268,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)void(^customAreaView)(UIView * customAreaView);
 
 
+
+/**clAuthWindowModalTransitionStyle系统自带的弹出方式 仅支持以下三种
+ UIModalTransitionStyleCoverVertical 底部弹出
+ UIModalTransitionStyleCrossDissolve 淡入
+ UIModalTransitionStyleFlipHorizontal 翻转显示
+ */
+@property (nonatomic,strong) NSNumber * clAuthWindowModalTransitionStyle;
+
+/* UIModalPresentationStyle
+ * 若使用窗口模式，请设置为UIModalPresentationOverFullScreen 或不设置
+ * iOS13强制全屏，请设置为UIModalPresentationFullScreen
+ * UIModalPresentationAutomatic API_AVAILABLE(ios(13.0)) = -2
+ * eg. @(UIModalPresentationOverFullScreen)
+ */
+@property (nonatomic,strong) NSNumber * clAuthWindowModalPresentationStyle;
+
 //竖屏布局配置对象 -->创建一个布局对象，设置好控件约束属性值，再设置到此属性中
 /**竖屏：UIInterfaceOrientationPortrait|UIInterfaceOrientationPortraitUpsideDown
  *由于运营商限制不同，外部自动旋转条件满足时，电信联通页面自动旋转，均使用此约束；移动强制竖屏

@@ -18,7 +18,7 @@ CL_ShanYanSDK is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CL_ShanYanSDK' , '~> 2.2.0.5-JC'
+pod 'CL_ShanYanSDK' , '~> 2.2.0.6-JC'
 ```
 
 ## 1.初始化
