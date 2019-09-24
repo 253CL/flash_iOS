@@ -18,7 +18,7 @@ CL_ShanYanSDK is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CL_ShanYanSDK' , '~> 2.2.1.2-JC'
+pod 'CL_ShanYanSDK' , '~> 2.2.1.3-JC'
 ```
 
 ## 1.初始化
@@ -134,7 +134,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 - 存在调用预初始化时获取的临时凭证，调用一键登录方法将立即拉起授权页面
 - shanyanAuthPageListener 拉起授权页监听回调
-- 不存在临时凭证或临时凭证过期时(临时凭证有效期电信60s、联通30min、移动60min)，调用一键登录方法，将有一个很短的时延，待取号成功后拉起授权页面
+- 不存在临时凭证或临时凭证过期时(临时凭证有效期电信10min、联通60min、移动60min)，调用一键登录方法，将有一个很短的时延，待取号成功后拉起授权页面
 - 取号失败时，返回失败 
 
 请求示例代码
