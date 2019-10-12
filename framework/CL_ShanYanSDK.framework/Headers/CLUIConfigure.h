@@ -9,6 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//
+//typedef NS_ENUM(NSInteger, CLShanYanModalTransitionStyle) {
+//    CLShanYanModalTransitionStyleCoverVertical = 0,
+//    CLShanYanModalTransitionStyleFlipHorizontal __TVOS_PROHIBITED,
+//    CLShanYanModalTransitionStyleCrossDissolve,
+//    CLShanYanModalTransitionStylePartialCurl NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
+//};
+//
+//typedef NS_ENUM(NSInteger, CLShanYanModalPresentationStyle) {
+//    CLShanYanModalPresentationFullScreen = 0,
+//    CLShanYanModalPresentationPageSheet NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
+//    CLShanYanModalPresentationFormSheet NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
+//    CLShanYanModalPresentationCurrentContext NS_ENUM_AVAILABLE_IOS(3_2),
+//    CLShanYanModalPresentationCustom NS_ENUM_AVAILABLE_IOS(7_0),
+//    CLShanYanModalPresentationOverFullScreen NS_ENUM_AVAILABLE_IOS(8_0),
+//    CLShanYanModalPresentationOverCurrentContext NS_ENUM_AVAILABLE_IOS(8_0),
+//    CLShanYanModalPresentationPopover NS_ENUM_AVAILABLE_IOS(8_0) __TVOS_PROHIBITED,
+//    CLShanYanModalPresentationBlurOverFullScreen __TVOS_AVAILABLE(11_0) __IOS_PROHIBITED __WATCHOS_PROHIBITED,
+//    CLShanYanModalPresentationNone NS_ENUM_AVAILABLE_IOS(7_0) = -1,
+//};
+
 NS_ASSUME_NONNULL_BEGIN
 @class CLOrientationLayOut;
 /*
@@ -155,6 +176,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSNumber* clAppPrivacyLineSpacing;
 /**是否需要sizeToFit,设置后与宽高约束的冲突请自行考虑 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber* clAppPrivacyNeedSizeToFit;
+/**UITextView.textContainerInset 文字与TextView控件内边距 UIEdgeInset  eg.[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(2, 2, 2, 2)]*/
+@property (nonatomic,strong)NSValue* clAppPrivacyTextContainerInset;
+/**UITextView.textContainer.lineFragmentPadding 文字与TextView控件左右内边距 CGFloat  eg.@(0)*/
+@property (nonatomic,strong)NSNumber* clAppPrivacyLineFragmentPadding;
+/**UITextView.contentInset UIEdgeInset eg.[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(2, 2, 2, 2)]*/
+@property (nonatomic,strong)NSValue* clAppPrivacyContentInset;
 /**隐私条款--APP名称简写 默认取CFBundledisplayname 设置描述文本四后此属性无效*/
 @property (nonatomic,copy) NSString  * clAppPrivacyAbbreviatedName;
 /*
@@ -168,16 +195,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong)NSArray * clAppPrivacySecond;
 /*
- 隐私协议文本拼接: DesTextFirst+运营商条款+DesTextSecond+隐私条款一+DesTextThird+隐私条款二+DesTextFourth
+ *隐私条款三:需同时设置Name和UrlString eg.@[@"条款一名称",条款一URL]
+ *@[NSSting,NSURL];
+ */
+@property (nonatomic,strong)NSArray * clAppPrivacyThird;
+/*
+ 隐私协议文本拼接: DesTextFirst+运营商条款+DesTextSecond+隐私条款一+DesTextThird+隐私条款二+DesTextFourth+隐私条款三+DesTextLast
  **/
-/**描述文本一 default:"同意"*/
+/**描述文本 首部 default:"同意"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextFirst;
 /**描述文本二 default:"和"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextSecond;
 /**描述文本三 default:"、"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextThird;
-/**描述文本四 default: "并授权AppName使用认证服务"*/
+/**描述文本四 default:"、"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextFourth;
+/**描述文本 尾部 default: "并授权AppName使用认证服务"*/
+@property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextLast;
+
 
 /**用户隐私协议WEB页面导航栏标题 默认显示用户条款名称*/
 @property (nonatomic,strong)NSAttributedString * clAppPrivacyWebAttributesTitle;
@@ -186,7 +221,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**隐私协议WEB页面导航返回按钮图片*/
 @property (nonatomic,strong)UIImage * clAppPrivacyWebBackBtnImage;
 
-/*状态栏样式 默认：UIStatusBarStyleDefault*/
+/*协议页状态栏样式 默认：UIStatusBarStyleDefault*/
 @property (nonatomic,strong)NSNumber * clAppPrivacyWebPreferredStatusBarStyle;
 
 
@@ -222,6 +257,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIImage  *clCheckBoxUncheckedImage;
 /**协议勾选框 选中状态图片*/
 @property (nonatomic,strong) UIImage  *clCheckBoxCheckedImage;
+
+/**授权页自定义 "请勾选协议"提示框
+ - containerView为loading的全屏蒙版view
+ - 请自行在containerView添加自定义loading
+ - 设置block后，上述loading属性将无效
+ */
+@property (nonatomic,copy)void(^checkBoxTipView)(UIView * containerView);
 
 /*Loading*/
 /**Loading 大小 CGSize eg.[NSValue valueWithCGSize:CGSizeMake(50, 50)]*/
@@ -275,9 +317,18 @@ NS_ASSUME_NONNULL_BEGIN
  * 若使用窗口模式，请设置为UIModalPresentationOverFullScreen 或不设置
  * iOS13强制全屏，请设置为UIModalPresentationFullScreen
  * UIModalPresentationAutomatic API_AVAILABLE(ios(13.0)) = -2
+ * 默认UIModalPresentationFullScreen
  * eg. @(UIModalPresentationOverFullScreen)
  */
+/*授权页 ModalPresentationStyle*/
 @property (nonatomic,strong) NSNumber * clAuthWindowModalPresentationStyle;
+/*协议页 ModalPresentationStyle （授权页使用窗口模式时，协议页使用模态弹出）*/
+@property (nonatomic,strong) NSNumber * clAppPrivacyWebModalPresentationStyle;
+
+/**
+ * 授权页面present弹出时animate动画设置，默认带动画，eg. @(YES)
+ */
+@property (nonatomic,strong) NSNumber * clAuthWindowPresentingAnimate;
 
 /**弹窗的MaskLayer，用于自定义窗口形状*/
 @property (nonatomic,strong) CALayer * clAuthWindowMaskLayer;
@@ -385,7 +436,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**窗口大小：高 float */
 @property (nonatomic,strong) NSNumber * clAuthWindowOrientationHeight;
 
-/**默认布局配置*/
+/**默认布局配置
+* 用于快速展示默认界面。定制UI时，请重新创建CLOrientationLayOut对象再设置属性，以避免和默认约束冲突
+ */
 + (CLOrientationLayOut *)clDefaultOrientationLayOut;
 
 @end
