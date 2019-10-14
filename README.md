@@ -21,7 +21,7 @@ it, simply add the following line to your Podfile:
 pod 'CL_ShanYanSDK' , '~> 2.3.0.0'
 ```
 
-## 接入文档以官网http://flash.253.com为准
+## 接入文档以官网http://flash.253.com 为准
 
 ## 1.初始化
 
@@ -31,6 +31,8 @@ pod 'CL_ShanYanSDK' , '~> 2.3.0.0'
 /**初始化*/
 +(void)initWithAppId:(NSString *)appId complete:(nullable CLComplete)complete;
 ```
+
+从2.3.0开始，前端不再需要appKey
 
 **接口作用**<br />**<br />初始化SDK :传入用户的appID,获取本机运营商,读取缓存,获取运营商配置,初始化SDK
 
