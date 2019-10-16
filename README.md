@@ -18,8 +18,10 @@ CL_ShanYanSDK is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CL_ShanYanSDK' , '~> 2.2.0.7'
+pod 'CL_ShanYanSDK' , '~> 2.3.0.0'
 ```
+
+## 接入文档以官网http://flash.253.com 为准
 
 ## 1.初始化
 
@@ -27,10 +29,12 @@ pod 'CL_ShanYanSDK' , '~> 2.2.0.7'
 
 ```objectivec
 /**初始化*/
-+(void)initWithAppId:(NSString *)appId AppKey:(NSString *)appKey timeOut:(NSTimeInterval)timeOut  complete:(nullable CLComplete)complete;
++(void)initWithAppId:(NSString *)appId complete:(nullable CLComplete)complete;
 ```
 
-**接口作用**<br />**<br />初始化SDK :传入用户的appID、appKey,获取本机运营商,读取缓存,获取运营商配置,初始化SDK
+从2.3.0开始，前端不再需要appKey
+
+**接口作用**<br />**<br />初始化SDK :传入用户的appID,获取本机运营商,读取缓存,获取运营商配置,初始化SDK
 
 **使用场景**<br />**
 
@@ -46,7 +50,7 @@ pod 'CL_ShanYanSDK' , '~> 2.2.0.7'
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
      //初始化
-     [CLShanYanSDKManager initWithAppId:cl_SDK_APPID AppKey:cl_SDK_APPKEY timeOut:8 complete:nil];
+     [CLShanYanSDKManager initWithAppId:cl_SDK_APPID complete:nil];
     ...
 }
 ```
@@ -61,7 +65,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 	// 建议先检测APP登录状态，未登录再使用闪验
    ...
    //初始化        
-   CLShanYanSDKManager.initWithAppId("your appID", appKey: "your appKey", timeOut: 4)
+   CLShanYanSDKManager.initWithAppId("your appID")
    ...
 }
 ```

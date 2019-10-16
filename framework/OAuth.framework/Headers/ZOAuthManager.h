@@ -8,41 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-
+typedef NS_ENUM(NSInteger, ZO_CellularProvider)
+{
+    zo_noSIMCard,//没有SIM卡
+    zo_isChinaUnicom,//中国联通
+    zo_isChinaMobile,//中国移动
+    zo_isChinaTeleCom,//中国电信
+    zo_isOtherProvider,//其他
+};
 @interface ZOAuthManager : NSObject
-
-//修改bundle名称
--(void)setBundlePath:(NSString*)bundlePath;
-
-
-//RSA 加密
-+ (NSString*) encryptWithRSA:(NSString*) content key:(NSString*)key;
-//RSA 解密
-+ (NSString*) decryptWithRSA:(NSString*) content key:(NSString*)key;
-
-/**
- *  aes加密工具
- */
-+ (NSString*) encryptWithAES:(NSString*) content  secretKey:(NSString*) key;
-
-/**
- *  aes解密工具
- */
-+ (NSString*) decryptWithAES:(NSString*) content  secretKey:(NSString*) key;
-
-/**
- *  md5加密工具
- */
-+ (NSString*) encryptWithMD5:(NSString*) content;
-/**
- *  base64加密工具
- */
-+ (NSString*) encryptWithBase64:(NSString *)content;
-/**
- *  base64解密内容
- */
-+ (NSString*) decryptWithBase64:(NSString *)content;
 
 /**
  *  是否使用测试环境
@@ -50,4 +24,11 @@
  *  @param isDebug true／false
  */
 + (void) setDebug:(Boolean) isDebug ;
+
+//获取当前的运营商类型；(注意在双卡手机上的使用)
++(ZO_CellularProvider)getCellularProvider;
+
+//IOS12.1以上有效；判读手机里是否有两张SIM卡
++ (BOOL)hasDoubleSIMCard:(void(^)(BOOL ifHas,NSDictionary * dic))block;
+
 @end

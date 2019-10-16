@@ -9,6 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//
+//typedef NS_ENUM(NSInteger, CLShanYanModalTransitionStyle) {
+//    CLShanYanModalTransitionStyleCoverVertical = 0,
+//    CLShanYanModalTransitionStyleFlipHorizontal __TVOS_PROHIBITED,
+//    CLShanYanModalTransitionStyleCrossDissolve,
+//    CLShanYanModalTransitionStylePartialCurl NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
+//};
+//
+//typedef NS_ENUM(NSInteger, CLShanYanModalPresentationStyle) {
+//    CLShanYanModalPresentationFullScreen = 0,
+//    CLShanYanModalPresentationPageSheet NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
+//    CLShanYanModalPresentationFormSheet NS_ENUM_AVAILABLE_IOS(3_2) __TVOS_PROHIBITED,
+//    CLShanYanModalPresentationCurrentContext NS_ENUM_AVAILABLE_IOS(3_2),
+//    CLShanYanModalPresentationCustom NS_ENUM_AVAILABLE_IOS(7_0),
+//    CLShanYanModalPresentationOverFullScreen NS_ENUM_AVAILABLE_IOS(8_0),
+//    CLShanYanModalPresentationOverCurrentContext NS_ENUM_AVAILABLE_IOS(8_0),
+//    CLShanYanModalPresentationPopover NS_ENUM_AVAILABLE_IOS(8_0) __TVOS_PROHIBITED,
+//    CLShanYanModalPresentationBlurOverFullScreen __TVOS_AVAILABLE(11_0) __IOS_PROHIBITED __WATCHOS_PROHIBITED,
+//    CLShanYanModalPresentationNone NS_ENUM_AVAILABLE_IOS(7_0) = -1,
+//};
+
 NS_ASSUME_NONNULL_BEGIN
 @class CLOrientationLayOut;
 /*
@@ -35,68 +56,71 @@ NS_ASSUME_NONNULL_BEGIN
 //导航栏
 /**导航栏 是否隐藏 BOOL default is NO, 设置优先级高于clNavigationBackgroundClear eg.@(NO)*/
 @property (nonatomic,strong)NSNumber * clNavigationBarHidden;
-@property (nonatomic,strong)NSNumber * cl_navigation_navigationBarHidden;
 /**导航栏 背景透明 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber * clNavigationBackgroundClear;
-@property (nonatomic,strong)NSNumber * cl_navigation_backgroundClear;
 /**导航栏标题*/
 @property (nonatomic,strong)NSAttributedString * clNavigationAttributesTitleText;
-@property (nonatomic,strong)NSAttributedString * cl_navigation_attributesTitleText;
+
 /**导航栏右侧自定义按钮*/
 @property (nonatomic,strong)UIBarButtonItem * clNavigationRightControl;
-@property (nonatomic,strong)UIBarButtonItem * cl_navigation_rightControl;
 /**导航栏左侧自定义按钮*/
 @property (nonatomic,strong)UIBarButtonItem * clNavigationLeftControl;
-@property (nonatomic,strong)UIBarButtonItem * cl_navigation_leftControl;
+
+// 返回按钮
 /**导航栏左侧返回按钮图片*/
 @property (nonatomic,strong)UIImage   * clNavigationBackBtnImage;
-@property (nonatomic,strong)UIImage   * cl_navigation_backBtnImage;
-/**导航栏左侧自定义按钮隐藏设置，默认显示 BOOL eg.@(YES)*/
+/**导航栏自带返回按钮隐藏，默认显示 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber  * clNavigationBackBtnHidden;
-@property (nonatomic,strong)NSNumber  * cl_navigation_backBtnHidden;
+/**************新增******************/
+/**返回按钮图片缩进 btn.imageInsets = UIEdgeInsetsMake(0, 0, 20, 20)*/
+@property (nonatomic,strong)NSValue * clNavBackBtnImageInsets;
+/**自带返回(关闭)按钮位置 默认NO 居左,设置为YES居右显示*/
+@property (nonatomic,strong)NSNumber * clNavBackBtnAlimentRight;
 
 /*translucent 此属性已失效*/
-@property (nonatomic,strong)NSNumber * cl_navigation_translucent;
+//@property (nonatomic,strong)NSNumber * cl_navigation_translucent;
 
-/**导航栏分割线 是否隐藏 default is NO, BOOL eg.@(YES) */
+/**导航栏分割线 是否隐藏
+ * set backgroundImage=UIImage.new && shadowImage=UIImage.new
+ * BOOL, default is NO
+ * eg.@(YES)
+ */
 @property (nonatomic,strong)NSNumber * clNavigationBottomLineHidden;
-@property (nonatomic,strong)NSNumber * cl_navigation_bottomLineHidden;
 /**导航栏 文字颜色*/
 @property (nonatomic,strong)UIColor  * clNavigationTintColor;
-@property (nonatomic,strong)UIColor  * cl_navigation_tintColor;
 /**导航栏 背景色 default is white*/
 @property (nonatomic,strong)UIColor  * clNavigationBarTintColor;
-@property (nonatomic,strong)UIColor  * cl_navigation_barTintColor;
 /**导航栏 背景图片*/
 @property (nonatomic,strong)UIImage  * clNavigationBackgroundImage;
-@property (nonatomic,strong)UIImage  * cl_navigation_backgroundImage;
 /**导航栏 配合背景图片设置，用来控制在不同状态下导航栏的显示(横竖屏是否显示) UIBarMetrics eg.@(UIBarMetricsCompact)*/
 @property (nonatomic,strong)NSNumber * clNavigationBarMetrics;
-@property (nonatomic,strong)NSNumber * cl_navigation_barMetrics;
 /**导航栏 导航栏底部分割线（图片）*/
 @property (nonatomic,strong)UIImage  * clNavigationShadowImage;
-@property (nonatomic,strong)UIImage  * cl_navigation_shadowImage;
 
-/**状态栏隐藏 此属性已失效*/
-@property (nonatomic,strong)NSNumber * cl_statusBar_hidden;
-/**状态栏样式 此属性已失效*/
-@property (nonatomic,strong)NSNumber * cl_statusBar_Style;
+/*状态栏样式
+ *Info.plist: View controller-based status bar appearance = YES
+ *
+ *UIStatusBarStyleDefault：状态栏显示 黑
+ *UIStatusBarStyleLightContent：状态栏显示 白
+ *UIStatusBarStyleDarkContent：状态栏显示 黑 API_AVAILABLE(ios(13.0)) = 3
+ **eg. @(UIStatusBarStyleLightContent)
+ */
+@property (nonatomic,strong)NSNumber * clPreferredStatusBarStyle;
+/*状态栏隐藏 eg.@(NO)*/
+@property (nonatomic,strong)NSNumber * clPrefersStatusBarHidden;
 
 /**
  *NavigationBar.barStyle：默认UIBarStyleBlack
  *Info.plist: View controller-based status bar appearance = YES
- *导航栏隐藏时：
- *状态栏黑白由 statusBarStyle 决定：
- *UIStatusBarStyleLightContent：状态栏显示 黑
- *UIStatusBarStyleLightContent：状态栏显示 白
- *导航栏显示时：
- *状态栏黑白由 navigation_barStyle 决定
+
  *UIBarStyleDefault：状态栏显示 黑
  *UIBarStyleBlack：状态栏显示 白
  *
  *eg. @(UIBarStyleBlack)
  */
 @property (nonatomic,strong)NSNumber * clNavigationBarStyle;
+
+
 
 //LOGO图片
 /**LOGO图片*/
@@ -106,16 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**LOGO显隐 BOOL eg.@(NO)*/
 @property (nonatomic,strong)NSNumber * clLogoHiden;
 
-/**LOGO布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
-/**LOGO高度*/
-@property (nonatomic,strong)NSNumber * clLogoHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**LOGO宽度*/
-@property (nonatomic,strong)NSNumber * clLogoWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1 ,use CLOrientationLayOut instead");
-/**LOGO偏移量*/
-@property (nonatomic,strong)NSNumber * clLogoOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1 ,use CLOrientationLayOut instead");
-/**LOGO水平偏移量*/
-@property (nonatomic,strong)NSNumber * clLogoOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1 ,use CLOrientationLayOut instead");
-
 /**手机号显示控件*/
 /**手机号颜色*/
 @property (nonatomic,strong)UIColor  * clPhoneNumberColor;
@@ -123,17 +137,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)UIFont   * clPhoneNumberFont;
 /**手机号对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
 @property (nonatomic,strong)NSNumber * clPhoneNumberTextAlignment;
-
-/**手机号布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
-/**手机号Y偏移量*/
-@property (nonatomic,strong)NSNumber * clPhoneNumberOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**手机号X偏移量*/
-@property (nonatomic,strong)NSNumber * clPhoneNumberOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**手机号高度*/
-@property (nonatomic,strong)NSNumber * clPhoneNumberHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**手机号宽度*/
-@property (nonatomic,strong)NSNumber * clPhoneNumberWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-
 
 /*一键登录按钮 控件
  注： 一键登录授权按钮 不得隐藏
@@ -148,22 +151,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)UIFont   * clLoginBtnTextFont;
 /**按钮背景图片*/
 @property (nonatomic,strong)UIImage  * clLoginBtnNormalBgImage;
+/**按钮背景高亮图片*/
+@property (nonatomic,strong)UIImage  * clLoginBtnHightLightBgImage;
 /**按钮边框颜色*/
 @property (nonatomic,strong)UIColor  * clLoginBtnBorderColor;
-/**按钮偏圆角 CGFloat eg.@(5)*/
+/**按钮圆角 CGFloat eg.@(5)*/
 @property (nonatomic,strong)NSNumber * clLoginBtnCornerRadius;
-/**按钮偏边框 CGFloat eg.@(2.0)*/
+/**按钮边框 CGFloat eg.@(2.0)*/
 @property (nonatomic,strong)NSNumber * clLoginBtnBorderWidth;
-
-/**一键登录按钮布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
-/**按钮Y偏移量*/
-@property (nonatomic,strong)NSNumber * clLoginBtnOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**按钮偏X移量*/
-@property (nonatomic,strong)NSNumber * clLoginBtnOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**按钮width*/
-@property (nonatomic,strong)NSNumber * clLoginBtnWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**按钮height*/
-@property (nonatomic,strong)NSNumber * clLoginBtnHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
 
 /*隐私条款Privacy
  注： 运营商隐私条款 不得隐藏
@@ -173,12 +168,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSArray<UIColor*> *clAppPrivacyColor;
 /**隐私条款文字字体*/
 @property (nonatomic,strong)UIFont  * clAppPrivacyTextFont;
-/**隐私条款--APP名称简写 默认取CFBundledisplayname*/
-@property (nonatomic,copy) NSString  * clAppPrivacyAbbreviatedName;
 /**隐私条款文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
 @property (nonatomic,strong)NSNumber * clAppPrivacyTextAlignment;
 /**运营商隐私条款书名号 默认NO 不显示 BOOL eg.@(YES)*/
 @property (nonatomic,strong)NSNumber * clAppPrivacyPunctuationMarks;
+/**多行时行距 CGFloat eg.@(2.0)*/
+@property (nonatomic,strong)NSNumber* clAppPrivacyLineSpacing;
+/**是否需要sizeToFit,设置后与宽高约束的冲突请自行考虑 BOOL eg.@(YES)*/
+@property (nonatomic,strong)NSNumber* clAppPrivacyNeedSizeToFit;
+/**UITextView.textContainerInset 文字与TextView控件内边距 UIEdgeInset  eg.[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(2, 2, 2, 2)]*/
+@property (nonatomic,strong)NSValue* clAppPrivacyTextContainerInset;
+/**UITextView.textContainer.lineFragmentPadding 文字与TextView控件左右内边距 CGFloat  eg.@(0)*/
+@property (nonatomic,strong)NSNumber* clAppPrivacyLineFragmentPadding;
+/**UITextView.contentInset UIEdgeInset eg.[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(2, 2, 2, 2)]*/
+@property (nonatomic,strong)NSValue* clAppPrivacyContentInset;
+/**隐私条款--APP名称简写 默认取CFBundledisplayname 设置描述文本四后此属性无效*/
+@property (nonatomic,copy) NSString  * clAppPrivacyAbbreviatedName;
 /*
  *隐私条款Y一:需同时设置Name和UrlString eg.@[@"条款一名称",条款一URL]
  *@[NSSting,NSURL];
@@ -189,18 +194,36 @@ NS_ASSUME_NONNULL_BEGIN
  *@[NSSting,NSURL];
  */
 @property (nonatomic,strong)NSArray * clAppPrivacySecond;
-/**隐私协议WEB页面导航栏标题 NSAttributedString*/
+/*
+ *隐私条款三:需同时设置Name和UrlString eg.@[@"条款一名称",条款一URL]
+ *@[NSSting,NSURL];
+ */
+@property (nonatomic,strong)NSArray * clAppPrivacyThird;
+/*
+ 隐私协议文本拼接: DesTextFirst+运营商条款+DesTextSecond+隐私条款一+DesTextThird+隐私条款二+DesTextFourth+隐私条款三+DesTextLast
+ **/
+/**描述文本 首部 default:"同意"*/
+@property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextFirst;
+/**描述文本二 default:"和"*/
+@property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextSecond;
+/**描述文本三 default:"、"*/
+@property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextThird;
+/**描述文本四 default:"、"*/
+@property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextFourth;
+/**描述文本 尾部 default: "并授权AppName使用认证服务"*/
+@property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextLast;
+
+
+/**用户隐私协议WEB页面导航栏标题 默认显示用户条款名称*/
 @property (nonatomic,strong)NSAttributedString * clAppPrivacyWebAttributesTitle;
+/**运营商隐私协议WEB页面导航栏标题 默认显示运营商条款名称*/
+@property (nonatomic,strong)NSAttributedString * clAppPrivacyWebNormalAttributesTitle;
 /**隐私协议WEB页面导航返回按钮图片*/
 @property (nonatomic,strong)UIImage * clAppPrivacyWebBackBtnImage;
-/**多行时行距 CGFloat eg.@(2.0)*/
-@property (nonatomic,strong)NSNumber* clAppPrivacyLineSpacing;
-/**是否需要sizeToFit,设置后与宽高约束的冲突请自行考虑 BOOL eg.@(YES)*/
-@property (nonatomic,strong)NSNumber* clAppPrivacyNeedSizeToFit;
 
-/**隐私条款布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
-/**隐私条款Y偏移量(注:此属性为条款顶部与屏幕底部的距离)*/
-@property (nonatomic,strong)NSNumber* clAppPrivacyOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
+/*协议页状态栏样式 默认：UIStatusBarStyleDefault*/
+@property (nonatomic,strong)NSNumber * clAppPrivacyWebPreferredStatusBarStyle;
+
 
 /*SLOGAN
  注： 运营商品牌标签("中国**提供认证服务")，不得隐藏
@@ -211,16 +234,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIColor  * clSloganTextColor;
 /**slogan文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
 @property (nonatomic,strong) NSNumber * clSlogaTextAlignment;
-
-/**slogan文字布局：如果通过CLOrientationLayOut方式设置布局，以下属性不生效*/
-/**sloganX偏移量*/
-@property (nonatomic,strong) NSNumber * clSloganOffsetX DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**sloganY偏移量*/
-@property (nonatomic,strong) NSNumber * clSloganOffsetY DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**slogan width*/
-@property (nonatomic,strong) NSNumber * clSloganWidth DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
-/**slogan height*/
-@property (nonatomic,strong) NSNumber * clSloganHeight DEPRECATED_MSG_ATTRIBUTE("will deprecated from 2.2.1,use CLOrientationLayOut instead");
 
 
 /*CheckBox
@@ -245,6 +258,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**协议勾选框 选中状态图片*/
 @property (nonatomic,strong) UIImage  *clCheckBoxCheckedImage;
 
+/**授权页自定义 "请勾选协议"提示框
+ - containerView为loading的全屏蒙版view
+ - 请自行在containerView添加自定义loading
+ - 设置block后，上述loading属性将无效
+ */
+@property (nonatomic,copy)void(^checkBoxTipView)(UIView * containerView);
+
 /*Loading*/
 /**Loading 大小 CGSize eg.[NSValue valueWithCGSize:CGSizeMake(50, 50)]*/
 @property (nonatomic,strong) NSValue *clLoadingSize;
@@ -267,7 +287,24 @@ NS_ASSUME_NONNULL_BEGIN
 /**可设置背景色及添加控件*/
 @property (nonatomic,copy)void(^customAreaView)(UIView * customAreaView);
 
+/**横竖屏*/
+/*是否支持自动旋转 BOOL*/
+@property (nonatomic,strong) NSNumber * shouldAutorotate;
+/*支持方向 UIInterfaceOrientationMask
+ - 如果设置只支持竖屏，只需设置clOrientationLayOutPortrait竖屏布局对象
+ - 如果设置只支持横屏，只需设置clOrientationLayOutLandscape横屏布局对象
+ - 横竖屏均支持，需同时设置clOrientationLayOutPortrait和clOrientationLayOutLandscape
+ */
+@property (nonatomic,strong) NSNumber * supportedInterfaceOrientations;
+/*默认方向 UIInterfaceOrientation*/
+@property (nonatomic,strong) NSNumber * preferredInterfaceOrientationForPresentation;
 
+/**以窗口方式显示授权页
+ */
+/**以窗口方式显示 BOOL, default is NO */
+@property (nonatomic,strong) NSNumber * clAuthTypeUseWindow;
+/**窗口圆角 float*/
+@property (nonatomic,strong) NSNumber * clAuthWindowCornerRadius;
 
 /**clAuthWindowModalTransitionStyle系统自带的弹出方式 仅支持以下三种
  UIModalTransitionStyleCoverVertical 底部弹出
@@ -280,13 +317,25 @@ NS_ASSUME_NONNULL_BEGIN
  * 若使用窗口模式，请设置为UIModalPresentationOverFullScreen 或不设置
  * iOS13强制全屏，请设置为UIModalPresentationFullScreen
  * UIModalPresentationAutomatic API_AVAILABLE(ios(13.0)) = -2
+ * 默认UIModalPresentationFullScreen
  * eg. @(UIModalPresentationOverFullScreen)
  */
+/*授权页 ModalPresentationStyle*/
 @property (nonatomic,strong) NSNumber * clAuthWindowModalPresentationStyle;
+/*协议页 ModalPresentationStyle （授权页使用窗口模式时，协议页使用模态弹出）*/
+@property (nonatomic,strong) NSNumber * clAppPrivacyWebModalPresentationStyle;
+
+/**
+ * 授权页面present弹出时animate动画设置，默认带动画，eg. @(YES)
+ */
+@property (nonatomic,strong) NSNumber * clAuthWindowPresentingAnimate;
+
+/**弹窗的MaskLayer，用于自定义窗口形状*/
+@property (nonatomic,strong) CALayer * clAuthWindowMaskLayer;
+
 
 //竖屏布局配置对象 -->创建一个布局对象，设置好控件约束属性值，再设置到此属性中
 /**竖屏：UIInterfaceOrientationPortrait|UIInterfaceOrientationPortraitUpsideDown
- *由于运营商限制不同，外部自动旋转条件满足时，电信联通页面自动旋转，均使用此约束；移动强制竖屏
  *eg.   CLUIConfigure * baseUIConfigure = [CLUIConfigure new];
  *      CLOrientationLayOut * clOrientationLayOutPortrait = [CLOrientationLayOut new];
  *      clOrientationLayOutPortrait.clLayoutPhoneCenterY = @(0);
@@ -295,6 +344,17 @@ NS_ASSUME_NONNULL_BEGIN
  *      baseUIConfigure.clOrientationLayOutPortrait = clOrientationLayOutPortrait;
  */
 @property (nonatomic,strong) CLOrientationLayOut * clOrientationLayOutPortrait;
+
+//横屏布局配置对象 -->创建一个布局对象，设置好控件约束属性值，再设置到此属性中
+/**横屏：UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationLandscapeRight
+ *eg.   CLUIConfigure * baseUIConfigure = [CLUIConfigure new];
+ *      CLOrientationLayOut * clOrientationLayOutLandscape = [CLOrientationLayOut new];
+ *      clOrientationLayOutLandscape.clLayoutPhoneCenterY = @(0);
+ *      clOrientationLayOutLandscape.clLayoutPhoneLeft = @(50*screenScale);
+ *      ...
+ *      baseUIConfigure.clOrientationLayOutLandscape = clOrientationLayOutLandscape;
+ */
+@property (nonatomic,strong) CLOrientationLayOut * clOrientationLayOutLandscape;
 
 
 /**默认界面配置*/
@@ -366,18 +426,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSNumber * clLayoutSloganCenterX;
 @property (nonatomic,strong)NSNumber * clLayoutSloganCenterY;
 
+/**窗口模式*/
+/**窗口中心：CGPoint X Y*/
+@property (nonatomic,strong) NSValue * clAuthWindowOrientationCenter;
+/**窗口左上角：frame.origin：CGPoint X Y*/
+@property (nonatomic,strong) NSValue * clAuthWindowOrientationOrigin;
+/**窗口大小：宽 float */
+@property (nonatomic,strong) NSNumber * clAuthWindowOrientationWidth;
+/**窗口大小：高 float */
+@property (nonatomic,strong) NSNumber * clAuthWindowOrientationHeight;
 
-///**窗口模式*/
-///**窗口中心：CGPoint X Y*/
-//@property (nonatomic,strong) NSValue * clAuthWindowOrientationCenter;
-///**窗口frame.origin：CGPoint X Y*/
-//@property (nonatomic,strong) NSValue * clAuthWindowOrientationOrigin;
-///**窗口大小：宽 float */
-//@property (nonatomic,strong) NSNumber * clAuthWindowOrientationWidth;
-///**窗口大小：高 float */
-//@property (nonatomic,strong) NSNumber * clAuthWindowOrientationHeight;
-
-/**默认布局配置*/
+/**默认布局配置
+* 用于快速展示默认界面。定制UI时，请重新创建CLOrientationLayOut对象再设置属性，以避免和默认约束冲突
+ */
 + (CLOrientationLayOut *)clDefaultOrientationLayOut;
 
 @end

@@ -39,10 +39,10 @@ static UASDKErrorCode const UASDKErrorCodeSocketError            = @"200050";
 static UASDKErrorCode const UASDKErrorCodeCustomSMSVC            = @"200060";
 //显示登录"授权页面"被拦截（hooked）
 static UASDKErrorCode const UASDKErrorCodeAutoVCisHooked         = @"200061";
-//预取号不支持联通
-static UASDKErrorCode const UASDKErrorCodeNOSupportUnicom        = @"200062";
-//预取号不支持电信
-static UASDKErrorCode const UASDKErrorCodeNOSupportTelecom       = @"200063";
+////预取号不支持联通
+//static UASDKErrorCode const UASDKErrorCodeNOSupportUnicom        = @"200062";
+////预取号不支持电信
+//static UASDKErrorCode const UASDKErrorCodeNOSupportTelecom       = @"200063";
 //服务端返回数据异常
 static UASDKErrorCode const UASDKErrorCodeExceptionData          = @"200064";
 //CA根证书校验失败
@@ -51,6 +51,12 @@ static UASDKErrorCode const UASDKErrorCodeCAAuthFailed           = @"200072";
 static UASDKErrorCode const UASDKErrorCodeGetMoblieOnlyCMCC      = @"200080";
 //服务器繁忙
 static UASDKErrorCode const UASDKErrorCodeServerBusy             = @"200082";
+//ppLocation为空
+static UASDKErrorCode const UASDKErrorCodeLocationError          = @"200086";
+//监听授权界面成功弹起
+static UASDKErrorCode const UASDKSuccessGetAuthVCCode            = @"200087";
+//SDK正在处理
+static UASDKErrorCode const UASDKErrorCodeHandling               = @"200089";
 /**
  获取错误码描述
 
