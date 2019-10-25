@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setCLShanYanSDKManagerDelegate:(id<CLShanYanSDKManagerDelegate>)delegate;
 
 /**
- 预初始化 Block方式
+ 初始化 Block方式
  @param appId 闪验后台申请的appId
  @param appKey 闪验后台申请的appKey
  @param complete 预初始化回调block 
@@ -51,28 +51,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 预取号
- --初始化方法内部会自动执行一次预取号，一般情况下外部可无需调用
- --建议在即将执行一键登录的地方的前60s调用此方法，比如调一键登录的vc的viewdidload中，当初始化的预取号失败的情况下，此调用将有助于提高闪验拉起授权页的速度和成功率
- --不建议频繁的多次调用和在拉起授权页后调用
+ * 预取号
+ * 此调用将有助于提高闪验拉起授权页的速度和成功率
+ * 建议在一键登录前提前调用此方法，比如调一键登录的vc的viewdidload中、初始化成功的回调中
+ * 一次调用仅对下一次拉起页面有加速效果
+ * 不建议在拉起授权页后调用
+ * 回调中如需UI操作，建议自行切到主线程
  */
 +(void)preGetPhonenumber:(nullable CLComplete)complete;
 
 /**
- 一键登录
- @param clUIConfigure 闪验授权页参数配置
- @param complete 回调block
+ * 一键登录
+ * @param clUIConfigure 闪验授权页参数配置
+ * @param complete 回调block
+ * 回调中如需UI操作，建议自行切到主线程
  */
 +(void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
                           complete:(nonnull CLComplete)complete;
 
 
 /**
- 一键登录 区分拉起授权页之前和之后的回调
- 
- @param clUIConfigure 闪验授权页参数配置
- @param openLoginAuthListener 拉起授权页监听
- @param oneKeyLoginListener 一键登录监听
+ * 一键登录 区分拉起授权页之前和之后的回调
+ * @param clUIConfigure 闪验授权页参数配置
+ * @param openLoginAuthListener 拉起授权页监听
+ * @param oneKeyLoginListener 一键登录监听
+ * 回调中如需UI操作，建议自行切到主线程
  */
 +(void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
            openLoginAuthListener:(CLComplete)openLoginAuthListener
@@ -91,10 +94,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**************本机认证功能***************/
 /**
- 本机号码校验
- 
- @param phoneNum 输入的手机号码
- @param complete 校验回调
+ * 本机号码校验
+ * @param phoneNum 输入的手机号码
+ * @param complete 校验回调
+ * 回调中如需UI操作，建议自行切到主线程
  */
 + (void)mobileCheckWithLocalPhoneNumber:(NSString *)phoneNum
                                complete:(CLComplete)complete;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define UASDKVERSION @"quick_login_iOS_5.3.9.2"
+#define UASDKVERSION @"quick_login_iOS_5.3.12"
 
 @class UACustomModel;
 NS_ASSUME_NONNULL_BEGIN
@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)mobileAuthCompletion:(void(^)(NSDictionary *_Nonnull result))completion;
 
 /**
- 删除取号缓存数据
+ 删除取号缓存数据 + 重置网络开关（自定义按钮事件里dimiss授权界面需调用）
  
  @return YES：有缓存已执行删除操作，NO：无缓存不执行删除操作
  */
@@ -78,6 +78,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param enable 开关参数
  */
 - (void)printConsoleEnable:(BOOL)enable;
+
+
+/**
+ 关闭授权界面
+ @param flag 动画开关
+ @param completion 回调参数
+
+ */
+- (void)ua_dismissViewControllerAnimated: (BOOL)flag completion: (void (^ __nullable)(void))completion;
 
 @end
 
