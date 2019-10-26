@@ -23,6 +23,9 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 /** 是否在授权页WillDisappear时销毁单例（默认为NO,请按需使用）；
  如果您确认使用此属性，并设置为YES，授权页会在页面销毁前销毁SDK单例对象*/
 @property (nonatomic,assign) BOOL isAutoReleaseEarlier;
+/**SDK会直接使用您的设置值，如果不传默认指定UIModalPresentationFullScreen*/
+@property (nonatomic,assign) UIModalPresentationStyle modalPresentationStyle;
+
 
 //MARK:导航栏设置*************
 

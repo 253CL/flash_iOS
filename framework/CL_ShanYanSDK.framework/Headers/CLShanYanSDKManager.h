@@ -65,17 +65,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setPreGetPhonenumberTimeOut:(NSTimeInterval)preGetPhoneTimeOut;
 
 /**
- 预取号
- --此调用将有助于提高闪验拉起授权页的速度和成功率
- --建议在一键登录前提前调用此方法，比如调一键登录的vc的viewdidload中、初始化成功的回调中
- --不建议在拉起授权页后调用
+ * 预取号
+ * 此调用将有助于提高闪验拉起授权页的速度和成功率
+ * 建议在一键登录前提前调用此方法，比如调一键登录的vc的viewdidload中、初始化成功的回调中
+ * 不建议在拉起授权页后调用
+ * 回调中如需UI操作，建议自行切到主线程
  */
 +(void)preGetPhonenumber:(nullable CLComplete)complete;
 
 /**
- 一键登录
+ * 一键登录
  @param clUIConfigure 闪验授权页参数配置
  @param complete 回调block
+ * 回调中如需UI操作，建议自行切到主线程
  */
 +(void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
                           complete:(nonnull CLComplete)complete;
@@ -88,6 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param openLoginAuthListener 拉起授权页监听：拉起授权页面成功或失败的回调，拉起成功或失败均触发。当拉起失败时，oneKeyLoginListener不会触发。此回调的内部触发时机是viewDidAppear
                     
  @param oneKeyLoginListener 一键登录监听：拉起授权页成功后的后续操作回调，包括点击SDK内置的(非外部自定义)取消登录按钮，以及点击本机号码一键登录的回调。点击授权页自定义按钮不触发此回调
+ 
+ * 回调中如需UI操作，建议自行切到主线程
  */
 +(void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
            openLoginAuthListener:(CLComplete)openLoginAuthListener
