@@ -7,7 +7,7 @@
 //
 
 /**
- V 3.6.0 增加安全校验
+ V 3.6.1 20190929
  */
 
 #import <Foundation/Foundation.h>
