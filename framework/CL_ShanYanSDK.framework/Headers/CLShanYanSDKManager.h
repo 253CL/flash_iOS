@@ -111,12 +111,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**************本机认证功能***************/
 /**
  本机号码校验
- 
- @param phoneNum 输入的手机号码
+
  @param complete 校验回调
  */
-+ (void)mobileCheckWithLocalPhoneNumber:(NSString *)phoneNum
-                               complete:(CLComplete)complete;
++ (void)mobileCheckWithLocalPhoneNumberComplete:(CLComplete)complete;
 
 /**************本机认证功能***************/
 
