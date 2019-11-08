@@ -243,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 /**协议勾选框（默认显示,放置在协议之前）BOOL eg.@(YES)*/
 @property (nonatomic,strong) NSNumber *clCheckBoxHidden;
-/**协议勾选框默认值（默认不选中）BOOL eg.@(YES)*/
+/**协议勾选框默认值（默认选中）BOOL eg.@(YES)*/
 @property (nonatomic,strong) NSNumber *clCheckBoxValue;
 /**协议勾选框 尺寸 NSValue->CGSize eg.[NSValue valueWithCGSize:CGSizeMake(25, 25)]*/
 @property (nonatomic,strong) NSValue *clCheckBoxSize;
