@@ -1,3 +1,4 @@
+
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, ControllerType) {
@@ -25,6 +26,8 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 @property (nonatomic,assign) BOOL isAutoReleaseEarlier;
 /**SDK会直接使用您的设置值，如果不传默认指定UIModalPresentationFullScreen*/
 @property (nonatomic,assign) UIModalPresentationStyle modalPresentationStyle;
+/**是否取消授权页关闭时的回调  默认YES*/
+@property (nonatomic,assign)BOOL ifStopListeningAuthPageClosed;
 
 
 //MARK:导航栏设置*************
@@ -194,6 +197,13 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 /**隐私条款和@“并授权***”之间的内容，默认为空
  可以使用此属性添加换行符或者其他纯文本内容 （隐私条款和复选框默认整体居中）*/
 @property(nonatomic,copy)NSString * stringAfterPrivacy;
+//登录即同意(stringBeforeDefaultPrivacyText)中国联通认证服务协议(stringBeforeAppFPrivacyText)协议1(stringBeforeAppSPrivacyText)协议2(stringAfterPrivacy)并授权xxx获得本机号码
+//默认为空
+@property(nonatomic,copy)NSString * stringBeforeDefaultPrivacyText;
+//默认为@“和”
+@property(nonatomic,copy)NSString * stringBeforeAppFPrivacyText;
+//默认为@“以及”
+@property(nonatomic,copy)NSString * stringBeforeAppSPrivacyText;
 /**隐私条款和复选框的整体左右偏移 （按需使用）
  默认边距最小是20
  使用规则：最小边距=20+（privacyGapToScreen）
