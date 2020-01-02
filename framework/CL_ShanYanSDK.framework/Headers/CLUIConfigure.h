@@ -279,6 +279,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,strong) NSNumber * clAuthWindowModalPresentationStyle;
 
+/*协议页 ModalPresentationStyle （授权页使用窗口模式时，协议页使用模态弹出）*/
+@property (nonatomic,strong) NSNumber * clAppPrivacyWebModalPresentationStyle;
+
 /**弹窗的MaskLayer，用于自定义窗口形状*/
 @property (nonatomic,strong) CALayer * clAuthWindowMaskLayer;
 
