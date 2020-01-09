@@ -49,7 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
               AppKey:(NSString *)appKey
             complete:(nullable CLComplete)complete DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `initWithAppId:complete:`");
 
-
 ///**
 // 设置初始化超时 单位:s
 // 大于0有效
@@ -137,6 +136,9 @@ NS_ASSUME_NONNULL_BEGIN
  * 当前SDK版本号
  */
 + (NSString *)clShanYanSDKVersion;
+
++(void)sdkInit:(NSString *)appId complete:(nullable CLComplete)complete;
+
 @end
 
 NS_ASSUME_NONNULL_END
