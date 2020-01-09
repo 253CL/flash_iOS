@@ -20,15 +20,24 @@
  * @param index       协议位置--0:运营商协议--1:用户协议一--2:用户协议二
  * @param telecom     当前运营商类型
 */
--(void)clShanYanSDKManagerWebPrivacyClicked:(NSString *_Nonnull)privacyName privacyIndex:(NSInteger)index currentTelecom:(NSString *_Nullable)telecom;
+-(void)clShanYanSDKManagerWebPrivacyClicked:(NSString *_Nonnull)privacyName privacyIndex:(NSInteger)index currentTelecom:(NSString *_Nullable)telecom DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `clShanYanActionListner:code:message:`");
 
 /**
  * 授权页面将要显示的回调
  * ViewDidLoad After
  * @param telecom     当前运营商类型
  */
--(void)clShanYanSDKManagerAuthPageAfterViewDidLoad:(UIView *_Nonnull)authPageView currentTelecom:(NSString *_Nullable)telecom;
+-(void)clShanYanSDKManagerAuthPageAfterViewDidLoad:(UIView *_Nonnull)authPageView currentTelecom:(NSString *_Nullable)telecom ;
 
+/**统一事件监听方法
+ *type：事件类型（1，2）
+ *1：隐私协议点击
+ * - 同-clShanYanSDKManagerWebPrivacyClicked:privacyIndex:currentTelecom
+ * code：0,1,2,3（协议页序号），message：协议名_当前运营商类型
+ *2：协议勾选框点击
+ * code：0,1（0为未选中，1为选中）
+ */
+-(void)clShanYanActionListener:(NSInteger)type code:(NSInteger)code  message:(NSString *_Nullable)message;
 @end
 
 NS_ASSUME_NONNULL_BEGIN
@@ -45,9 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param complete 预初始化回调block 
  */
 +(void)initWithAppId:(NSString *)appId complete:(nullable CLComplete)complete;
-+(void)initWithAppId:(NSString *)appId
-              AppKey:(NSString *)appKey
-            complete:(nullable CLComplete)complete DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `initWithAppId:complete:`");
 
 ///**
 // 设置初始化超时 单位:s
@@ -106,6 +112,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)finishAuthControllerCompletion:(void(^_Nullable)(void))completion;
 +(void)finishAuthControllerAnimated:(BOOL)flag Completion:(void(^_Nullable)(void))completion;
 
+//设置checkBox勾选状态
++(void)setCheckBoxValue:(BOOL)isSelect;
+
++(void)hideLoading;
 
 /**************本机认证功能***************/
 /**
@@ -132,13 +142,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)forbiddenFullLogReport:(BOOL)forbidden;
 
++(void)sdkInit:(NSString *)appId complete:(nullable CLComplete)complete;
+
 /**
  * 当前SDK版本号
  */
 + (NSString *)clShanYanSDKVersion;
-
-+(void)sdkInit:(NSString *)appId complete:(nullable CLComplete)complete;
-
 @end
 
 NS_ASSUME_NONNULL_END

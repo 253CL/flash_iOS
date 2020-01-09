@@ -97,6 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**导航栏 导航栏底部分割线（图片）*/
 @property (nonatomic,strong)UIImage  * clNavigationShadowImage;
 
+
 /*状态栏样式
  *Info.plist: View controller-based status bar appearance = YES
  *
@@ -153,6 +154,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)UIImage  * clLoginBtnNormalBgImage;
 /**按钮背景高亮图片*/
 @property (nonatomic,strong)UIImage  * clLoginBtnHightLightBgImage;
+/**按钮背景不可用图片*/
+@property (nonatomic,strong)UIImage  * clLoginBtnDisabledBgImage;
 /**按钮边框颜色*/
 @property (nonatomic,strong)UIColor  * clLoginBtnBorderColor;
 /**按钮圆角 CGFloat eg.@(5)*/
@@ -213,17 +216,33 @@ NS_ASSUME_NONNULL_BEGIN
 /**描述文本 尾部 default: "并授权AppName使用认证服务"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextLast;
 
+/**运营商协议后置 默认@(NO)"*/
+@property (nonatomic,strong)NSNumber *clOperatorPrivacyAtLast;
 
 /**用户隐私协议WEB页面导航栏标题 默认显示用户条款名称*/
 @property (nonatomic,strong)NSAttributedString * clAppPrivacyWebAttributesTitle;
 /**运营商隐私协议WEB页面导航栏标题 默认显示运营商条款名称*/
 @property (nonatomic,strong)NSAttributedString * clAppPrivacyWebNormalAttributesTitle;
+/**隐私协议标题文本属性（用户协议&&运营商协议）*/
+@property (nonatomic,strong)NSDictionary * clAppPrivacyWebAttributes;
 /**隐私协议WEB页面导航返回按钮图片*/
 @property (nonatomic,strong)UIImage * clAppPrivacyWebBackBtnImage;
 
 /*协议页状态栏样式 默认：UIStatusBarStyleDefault*/
 @property (nonatomic,strong)NSNumber * clAppPrivacyWebPreferredStatusBarStyle;
 
+/**UINavigationTintColor*/
+@property (nonatomic,strong)UIColor  * clAppPrivacyWebNavigationTintColor;
+/**UINavigationBarTintColor*/
+@property (nonatomic,strong)UIColor  * clAppPrivacyWebNavigationBarTintColor;
+/**UINavigationBackgroundImage*/
+@property (nonatomic,strong)UIImage  * clAppPrivacyWebNavigationBackgroundImage;
+/**UINavigationBarMetrics*/
+@property (nonatomic,strong)NSNumber * clAppPrivacyWebNavigationBarMetrics;
+/**UINavigationShadowImage*/
+@property (nonatomic,strong)UIImage  * clAppPrivacyWebNavigationShadowImage;
+/**UINavigationBarStyle*/
+@property (nonatomic,strong)NSNumber * clAppPrivacyWebNavigationBarStyle;
 
 /*SLOGAN
  注： 运营商品牌标签("中国**提供认证服务")，不得隐藏
@@ -235,6 +254,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**slogan文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
 @property (nonatomic,strong) NSNumber * clSlogaTextAlignment;
 
+/*闪验SLOGAN
+ 注： 供应商品牌标签("闪验提供认技术支持")
+ **/
+/**slogan文字字体*/
+@property (nonatomic,strong) UIFont   * clShanYanSloganTextFont;
+/**slogan文字颜色*/
+@property (nonatomic,strong) UIColor  * clShanYanSloganTextColor;
+/**slogan文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)*/
+@property (nonatomic,strong) NSNumber * clShanYanSloganTextAlignment;
+/**slogan默认不隐藏 eg.@(NO)*/
+@property (nonatomic,strong) NSNumber  * clShanYanSloganHidden;
 
 /*CheckBox
  *协议勾选框，默认选中且在协议前显示
@@ -260,8 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**授权页自定义 "请勾选协议"提示框
  - containerView为loading的全屏蒙版view
- - 请自行在containerView添加自定义loading
- - 设置block后，上述loading属性将无效
+ - 请自行在containerView添加自定义提示
  */
 @property (nonatomic,copy)void(^checkBoxTipView)(UIView * containerView);
 
@@ -286,6 +315,8 @@ NS_ASSUME_NONNULL_BEGIN
 //添加自定义控件
 /**可设置背景色及添加控件*/
 @property (nonatomic,copy)void(^customAreaView)(UIView * customAreaView);
+/**设置隐私协议弹窗*/
+@property (nonatomic,copy)void(^customPrivacyAlertView)(UIViewController * authPageVC);
 
 /**横竖屏*/
 /*是否支持自动旋转 BOOL*/
@@ -322,8 +353,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 /*授权页 ModalPresentationStyle*/
 @property (nonatomic,strong) NSNumber * clAuthWindowModalPresentationStyle;
-/*协议页 ModalPresentationStyle （授权页使用窗口模式时，协议页使用模态弹出）*/
+/*协议页 ModalPresentationStyle （授权页使用窗口模式时，协议页强制使用模态弹出）*/
 @property (nonatomic,strong) NSNumber * clAppPrivacyWebModalPresentationStyle;
+
+/* UIUserInterfaceStyle
+ * UIUserInterfaceStyleUnspecified - 不指定样式，跟随系统设置进行展示
+ * UIUserInterfaceStyleLight       - 明亮
+ * UIUserInterfaceStyleDark,       - 暗黑 仅对iOS13+系统有效
+ */
+/*授权页 UIUserInterfaceStyle,默认:UIUserInterfaceStyleLight,eg. @(UIUserInterfaceStyleLight)*/
+@property (nonatomic,strong) NSNumber * clAuthWindowOverrideUserInterfaceStyle;
 
 /**
  * 授权页面present弹出时animate动画设置，默认带动画，eg. @(YES)
@@ -425,6 +464,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSNumber * clLayoutSloganHeight;
 @property (nonatomic,strong)NSNumber * clLayoutSloganCenterX;
 @property (nonatomic,strong)NSNumber * clLayoutSloganCenterY;
+
+/*闪验Slogan 供应商品牌标签："闪验提供技术支持" label
+ **/
+//layout 约束均相对vc.view
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganLeft;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganTop;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganRight;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganBottom;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganWidth;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganHeight;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganCenterX;
+@property (nonatomic,strong)NSNumber * clLayoutShanYanSloganCenterY;
 
 /**窗口模式*/
 /**窗口中心：CGPoint X Y*/

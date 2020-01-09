@@ -4,86 +4,56 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/ZOAUCustomModel.h</key>
-		<data>
-		W5zawlNSg/9RpKfgbLl8ZDZFaVs=
-		</data>
-		<key>Headers/ZOAUResultListener.h</key>
-		<data>
-		3OzoL3JMnpuXT4x4ZF2YrDVgIaQ=
-		</data>
 		<key>Headers/ZOAuthManager.h</key>
 		<data>
-		ltbrA9zMHWmAAeSFZTCMq8dI8ko=
+		Bun83md0uveA8cIrtE31ZJYCthc=
 		</data>
 		<key>Headers/ZTOAuthManager.h</key>
 		<data>
-		GpphIX21tbpC8rS6JGinDXZ3PmU=
+		W8L0JfrdTB9W3S5SdC2zPmM1Rlc=
 		</data>
 		<key>Headers/ZUOAuthManager.h</key>
 		<data>
-		dvaYlPYe74J8s2bzp1dFTPi0K1w=
+		tzyoPulBaM4s/LiEv8eFPDvr4+8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ku/R/6bAz3FVrEi7fo8YqoNwPJI=
+		2InJOhviyxiEUEDvWKLjWpx7JC4=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/ZOAUCustomModel.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			W5zawlNSg/9RpKfgbLl8ZDZFaVs=
-			</data>
-			<key>hash2</key>
-			<data>
-			a7z1daybcwZwwBjr9J3K5CyktYBE72n40qXFKGU3Qws=
-			</data>
-		</dict>
-		<key>Headers/ZOAUResultListener.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3OzoL3JMnpuXT4x4ZF2YrDVgIaQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			KIhKScLjR5TmA49Dsj1EYx+U5vZPhHIBt5osV0nbGs0=
-			</data>
-		</dict>
 		<key>Headers/ZOAuthManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ltbrA9zMHWmAAeSFZTCMq8dI8ko=
+			Bun83md0uveA8cIrtE31ZJYCthc=
 			</data>
 			<key>hash2</key>
 			<data>
-			BgoMXUJGePQS+7T8ApgZMRVAVo1X9ANHJ6JMH/EtU+Y=
+			6NM3+En9MHSJDwLVUUjZHCl8qV9REUn8vk5KJ9uUmz8=
 			</data>
 		</dict>
 		<key>Headers/ZTOAuthManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GpphIX21tbpC8rS6JGinDXZ3PmU=
+			W8L0JfrdTB9W3S5SdC2zPmM1Rlc=
 			</data>
 			<key>hash2</key>
 			<data>
-			A42tEvCvPT2Lk3k0/67rFQGm2WvGpTRMAOhzfONrCHI=
+			jxCbjRLpgvjUYA9vL11GYSnlW36YQGR75olIqQRLYgQ=
 			</data>
 		</dict>
 		<key>Headers/ZUOAuthManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dvaYlPYe74J8s2bzp1dFTPi0K1w=
+			tzyoPulBaM4s/LiEv8eFPDvr4+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			/D4ee+VtOg+dI4daUeJSvkCHLWm+sBhDsLRVw9Mo9sI=
+			qa2pFGssrYGjUwMIptLo7AfKEbJDG7Ueas7fRikyksI=
 			</data>
 		</dict>
 	</dict>

@@ -42,6 +42,7 @@ typedef void(^CLComplete)(CLCompleteResult * completeResult);
 @property (nonatomic,assign)BOOL authPagePresented;
 
 +(instancetype)cl_CompleteWithCode:(NSInteger)code message:(NSString *)message data:(nullable NSDictionary *)data  error:(nullable NSError *)error;
+-(void)fillPropertyInfo;
 @end
 
 NS_ASSUME_NONNULL_END
