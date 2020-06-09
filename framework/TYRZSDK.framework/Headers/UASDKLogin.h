@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define UASDKVERSION @"quick_login_iOS_5.3.12"
+#define UASDKVERSION @"quick_login_iOS_5.7.1"
 
 @class UACustomModel;
 NS_ASSUME_NONNULL_BEGIN
