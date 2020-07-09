@@ -167,6 +167,8 @@ NS_ASSUME_NONNULL_BEGIN
  注： 运营商隐私条款 不得隐藏
  用户条款不限制
  **/
+/**隐私条款 下划线设置，默认隐藏，设置clPrivacyShowUnderline = @(YES)显示下划线*/
+@property (nonatomic,strong)NSNumber * clPrivacyShowUnderline;
 /**隐私条款名称颜色：@[基础文字颜色UIColor*,条款颜色UIColor*] eg.@[[UIColor lightGrayColor],[UIColor greenColor]]*/
 @property (nonatomic,strong) NSArray<UIColor*> *clAppPrivacyColor;
 /**隐私条款文字字体*/
@@ -212,6 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextFourth;
 /**描述文本 尾部 default: "并授权AppName使用认证服务"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextLast;
+
 
 /**运营商协议后置 默认@(NO)"*/
 @property (nonatomic,strong)NSNumber *clOperatorPrivacyAtLast;
