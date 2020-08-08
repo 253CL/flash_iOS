@@ -52,6 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**授权页-背景图片*/
 @property (nonatomic,strong) UIImage *clBackgroundImg;
+/**授权页-背景色*/
+@property (nonatomic,strong) UIColor *clBackgroundColor;
 
 //导航栏
 /**导航栏 是否隐藏 BOOL default is NO, 设置优先级高于clNavigationBackgroundClear eg.@(NO)*/
@@ -82,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**导航栏分割线 是否隐藏
  * set backgroundImage=UIImage.new && shadowImage=UIImage.new
- * BOOL, default is NO
+ * BOOL, default is YES
  * eg.@(YES)
  */
 @property (nonatomic,strong)NSNumber * clNavigationBottomLineHidden;
@@ -214,7 +216,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextFourth;
 /**描述文本 尾部 default: "并授权AppName使用认证服务"*/
 @property (nonatomic,copy)NSString *clAppPrivacyNormalDesTextLast;
-
 
 /**运营商协议后置 默认@(NO)"*/
 @property (nonatomic,strong)NSNumber *clOperatorPrivacyAtLast;
@@ -377,6 +378,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 授权页面present弹出时animate动画设置，默认带动画，eg. @(YES)
  */
 @property (nonatomic,strong) NSNumber * clAuthWindowPresentingAnimate;
+/**
+ * sdk自带返回键：授权页面dismiss时animate动画设置，默认带动画，eg. @(YES)
+ */
+@property (nonatomic,strong) NSNumber * clAuthWindowDismissAnimate;
 
 /**弹窗的MaskLayer，用于自定义窗口形状*/
 @property (nonatomic,strong) CALayer * clAuthWindowMaskLayer;

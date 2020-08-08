@@ -15,6 +15,8 @@ typedef NSString *UASDKErrorCode;
 
 //成功
 static UASDKErrorCode const UASDKErrorCodeSuccess                = @"103000";
+//用户取消登录
+static UASDKErrorCode const UASDKErrorCodeUserCancelAuth         = @"200020";
 //数据解析异常
 static UASDKErrorCode const UASDKErrorCodeProcessException       = @"200021";
 //无网络
@@ -55,9 +57,6 @@ static UASDKErrorCode const UASDKErrorCodeLocationError          = @"200086";
 static UASDKErrorCode const UASDKSuccessGetAuthVCCode            = @"200087";
 //SDK正在处理
 static UASDKErrorCode const UASDKErrorCodeHandling               = @"200089";
-//当前网络不支持取号
-static UASDKErrorCode const UASDKErrorCodeUnsupportedNetwork     = @"200096";
-
 /**
  获取错误码描述
 
