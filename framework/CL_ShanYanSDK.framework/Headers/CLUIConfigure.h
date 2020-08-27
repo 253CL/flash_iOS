@@ -285,6 +285,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSValue *clCheckBoxImageEdgeInsets;
 /**协议勾选框 设置CheckBox顶部与隐私协议控件顶部对齐 YES或大于0生效 eg.@(YES)*/
 @property (nonatomic,strong) NSNumber *clCheckBoxVerticalAlignmentToAppPrivacyTop;
+
+/**协议勾选框 设置CheckBox对齐后的偏移量,相对于对齐后的中心距离在当前垂直方向上的偏移*/
+@property (nonatomic,strong) NSNumber *clCheckBoxVerticalAlignmentOffset;
+
+
+
 /**协议勾选框 设置CheckBox顶部与隐私协议控件竖向中心对齐 YES或大于0生效 eg.@(YES)*/
 @property (nonatomic,strong) NSNumber *clCheckBoxVerticalAlignmentToAppPrivacyCenterY;
 /**协议勾选框 非选中状态图片*/
