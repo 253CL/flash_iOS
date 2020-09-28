@@ -37,6 +37,7 @@
 
 
 /**
+ 不推荐使用
  中断取号登录流程(按需使用)
  取消取号请求
  */
@@ -79,7 +80,7 @@
 - (void) gmbc:(NSString*)accessCode listener:(void (^)(NSDictionary *data))listener;
 
 
-//释放SDK内部单例对象
+//释放SDK内部单例对象 不推荐使用
 -(void)ZOAURelease;
 
 @end
