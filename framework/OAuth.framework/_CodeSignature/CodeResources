@@ -14,11 +14,15 @@
 		</data>
 		<key>Headers/ZUOAuthManager.h</key>
 		<data>
-		3hNIJzGdPh0t6PJs++XFiwpk2r8=
+		vQjZ3rGnvPH5unmuuAhhNN8BuyM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		O5k78mz41m5mzSbFHSh0LWgrmSc=
+		m9bTZOiOQOril/llA+1ZmQa8v6c=
+		</data>
+		<key>Modules/module.modulemap</key>
+		<data>
+		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -49,11 +53,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3hNIJzGdPh0t6PJs++XFiwpk2r8=
+			vQjZ3rGnvPH5unmuuAhhNN8BuyM=
 			</data>
 			<key>hash2</key>
 			<data>
-			GUGahV21wr96RQP1KsRY07Em5BftMx8h5+FWowFFuX8=
+			26cP5YgH1gCN4jat375TLZNSe8qBLXi/mvTCLS8GHP8=
+			</data>
+		</dict>
+		<key>Modules/module.modulemap</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+			</data>
+			<key>hash2</key>
+			<data>
+			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 			</data>
 		</dict>
 	</dict>
