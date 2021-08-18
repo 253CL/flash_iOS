@@ -57,8 +57,6 @@
 @property (nonatomic,strong) NSDictionary<NSAttributedStringKey,id> *numberTextAttributes;
 /**号码栏X偏移量*/
 @property (nonatomic,strong) NSNumber * numberOffsetX;
-/**号码栏Y偏移量*/
-@property (nonatomic,strong) NSNumber * numberOffsetY;
 
 /**号码栏Y偏移量（基于底部）*/
 @property (nonatomic,strong) NSNumber * numberOffsetY_B;
@@ -83,9 +81,6 @@
 /**隐私条款默认协议是否开启书名号
  */
 @property (nonatomic, assign) BOOL privacySymbol;
-/**隐私条款文字内容的方向:默认是居左
- */
-@property (nonatomic,assign) NSTextAlignment appPrivacyAlignment;
 /**隐私条款:数组（务必按顺序）要设置NSLinkAttributeName属性可以跳转协议
  对象举例：
  NSAttributedString *str1 = [[NSAttributedString alloc]initWithString:@"百度协议" attributes:@{NSLinkAttributeName:@"https://www.baidu.com"}];

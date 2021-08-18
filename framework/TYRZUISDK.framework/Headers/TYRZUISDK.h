@@ -1,5 +1,5 @@
 //
-//  TYRZSDK.h
+//  TYRZUISDK.h
 //  TYRZSDK
 //
 
@@ -7,6 +7,3 @@
 #import "UASDKErrorCode.h"
 #import "UAEnums.h"
 #import "UACustomModel.h"
-
-
-
