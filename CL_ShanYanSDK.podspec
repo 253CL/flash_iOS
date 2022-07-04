@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CL_ShanYanSDK"
-  s.version      = "2.3.5.0"
+  s.version      = "2.3.5.1"
   s.summary      = "闪验 iOS SDK"
 
   # This description is used to generate tags and improve search results.
@@ -120,7 +120,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  s.framework  = "Network"
+  s.weak_framework  = "Network"
   s.library   = "c++.1"
   # s.libraries = "iconv", "xml2"
 
