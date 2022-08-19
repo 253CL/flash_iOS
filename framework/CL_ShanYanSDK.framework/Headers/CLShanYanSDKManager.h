@@ -79,6 +79,17 @@
                            code:(NSInteger)code
                         message:(NSString *_Nullable)message;
 
+
+
+/// 协议点击回调  （clAppPrivacyCustomWeb设置为YES时有效）
+/// 处理跳转自定义webview逻辑。如：[authPageVC.navigationController pushViewController:xxVC animated:YES];
+/// @param privacyName       协议名称
+/// @param URLString         协议链接
+/// @param authPageVC        导航控制器
+- (void)clShanYanPrivacyListener:(NSString *_Nonnull)privacyName
+                      privacyURL:(NSString *_Nonnull)URLString
+                        authPage:(UIViewController *_Nonnull)authPageVC;
+
 @end
 
 

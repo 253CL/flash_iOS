@@ -179,6 +179,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) NSArray *clAppPrivacyThird;
 
 /*
+ *用户自己隐私协议大于3条时，
+ *可使用：@[@{@"decollator":@"、",
+ *        @"privacyName":@"《自定义隐私协议》",
+ *        @"privacyURL":@"https://"}
+ *       ];
+ *ps：数组中字典的key不可更改
+ */
+@property(nonatomic,strong) NSArray *clAppMorePrivacyArray;
+
+/*
  隐私协议文本拼接: DesTextFirst+运营商条款+DesTextSecond+隐私条款一+DesTextThird+隐私条款二+DesTextFourth+隐私条款三+DesTextLast
  **/
 /// 描述文本 首部 default:"同意"
@@ -193,6 +203,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *clAppPrivacyNormalDesTextLast;
 /// 运营商协议后置 默认@(NO)
 @property(nonatomic,strong) NSNumber *clOperatorPrivacyAtLast;
+
+/// 协议跳转自定义webview，值为@(YES)时，SDK内部webview跳转失效，在下面代理中跳转自定义webview。默认跳转SDK内部webview
+/// - (void)clShanYanPrivacyListener:(NSString *_Nonnull)privacyName privacyURL:(NSString *_Nonnull)URLString authPage:(UIViewController *_Nonnull)authPageVC
+@property (nonatomic,strong)NSNumber *clAppPrivacyCustomWeb;
 
 /// 用户隐私协议WEB页面导航栏标题 默认显示用户条款名称
 @property(nonatomic,strong) NSAttributedString *clAppPrivacyWebAttributesTitle;
