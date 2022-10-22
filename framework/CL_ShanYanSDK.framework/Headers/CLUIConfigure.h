@@ -12,7 +12,7 @@
 @class CLOrientationLayOut;
 NS_ASSUME_NONNULL_BEGIN
 
-/*⚠️⚠️ 注： 授权页一键登录按钮、运营商品牌标签、运营商条款必须显示，不得隐藏，否则取号能力可能被运营商关闭 **/
+/*⚠️⚠️ 注： 授权页一键登录按钮、运营商条款必须显示，不得隐藏，否则取号能力可能被运营商关闭 **/
 
 /// 授权页UI配置
 @interface CLUIConfigure : NSObject
@@ -245,6 +245,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIColor*clSloganTextColor;
 /// slogan文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)
 @property(nonatomic,strong) NSNumber *clSlogaTextAlignment;
+/// slogan默认不隐藏 eg.@(NO)
+@property(nonatomic,strong) NSNumber *clSloganTextHidden;
 
 /*闪验SLOGAN
  注： 供应商品牌标签("闪验提供认技术支持")
@@ -255,7 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIColor*clShanYanSloganTextColor;
 /// slogan文字对齐方式 NSTextAlignment eg.@(NSTextAlignmentCenter)
 @property(nonatomic,strong) NSNumber *clShanYanSloganTextAlignment;
-/// slogan默认不隐藏 eg.@(NO)
+/// slogan默认隐藏 eg.@(YES)
 @property(nonatomic,strong) NSNumber*clShanYanSloganHidden;
 
 

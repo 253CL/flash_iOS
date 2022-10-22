@@ -15,13 +15,6 @@
 @protocol CLShanYanSDKManagerDelegate <NSObject>
 
 @optional
-/// 授权页面协议点击回调
-/// @param privacyName      协议名称
-/// @param index            协议位置--0:运营商协议--1:用户协议一--2:用户协议二
-/// @param telecom          当前运营商类型
-- (void)clShanYanSDKManagerWebPrivacyClicked:(NSString *_Nonnull)privacyName
-                                privacyIndex:(NSInteger)index
-                              currentTelecom:(NSString *_Nullable)telecom DEPRECATED_MSG_ATTRIBUTE("Method deprecated. Use `clShanYanActionListner:code:message:`");
 
 /// 授权页面已经显示的回调
 /// @param authPageView     授权页view
@@ -71,7 +64,7 @@
 
 /// 统一事件监听方法
 /// @param type             事件类型（1：隐私协议点击， 2：协议勾选框点击，3："一键登录"按钮点击）
-/// @param code             事件对应序号  type=1时：code：0,1,2,3（协议页序号），message：协议名_当前运营商类型
+/// @param code             事件对应序号  type=1时：code：0,1,2,3（协议页序号），message：协议名|当前运营商类型
 ///                                     type=2时：code：0,1（0为未选中，1为选中）
 ///                                     type=3时：code：0,1（0为协议勾选框未选中，1为选中）
 /// @param message          说明：type=1时：message：协议名_当前运营商类型
