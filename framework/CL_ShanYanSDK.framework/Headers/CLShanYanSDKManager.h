@@ -177,6 +177,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 清除预取号缓存
 + (void)clearScripCache;
 
+/// 禁止日志上报获取IP（默认允许）
+/// @param forbidden YES:禁止 NO:允许
++ (void)forbiddenNonessentialIp:(BOOL)forbidden;
+
 /// 禁止日志上报(默认开启)  此接口需要在初始化之前调用,否则配置不生效
 /// @param forbidden        YES:禁止上报 NO:允许上报
 + (void)forbiddenFullLogReport:(BOOL)forbidden;
