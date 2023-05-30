@@ -36,11 +36,9 @@ static UAFSDKErrorCode const UASDKErrorCodeSocketError            = @"200050";
 //用户点击了“账号切换”按钮（自定义短信页面customSMS为YES才会返回）
 static UAFSDKErrorCode const UASDKErrorCodeCustomSMSVC            = @"200060";
 //显示登录"授权页面"被拦截（hooked）
-static UAFSDKErrorCode const UASDKErrorCodeAutoVCisHooked         = @"200061";
-////预取号不支持联通
-//static UAFSDKErrorCode const UASDKErrorCodeNOSupportUnicom        = @"200062";
-////预取号不支持电信
-//static UAFSDKErrorCode const UASDKErrorCodeNOSupportTelecom       = @"200063";
+static UAFSDKErrorCode const UASDKErrorCodeAuthVCisHooked         = @"200061";
+//连续授权超过限制
+static UAFSDKErrorCode const UASDKErrorCodeAuthFrequently         = @"200062";
 //服务端返回数据异常
 static UAFSDKErrorCode const UASDKErrorCodeExceptionData          = @"200064";
 //CA根证书校验失败
@@ -62,6 +60,6 @@ static UAFSDKErrorCode const UASDKErrorCodeUnsupportedNetwork     = @"200096";
  @param code 错误码
  @return 返回对应描述
  */
-FOUNDATION_EXPORT NSString *UASDKErrorDescription(UAFSDKErrorCode code);
+FOUNDATION_EXPORT NSString *UAFSDKErrorDescription(UAFSDKErrorCode code);
 
 #endif /* UASDKErrorCode_h */

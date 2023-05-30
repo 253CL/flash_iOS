@@ -62,14 +62,22 @@
 /**号码栏Y偏移量（基于底部）*/
 @property (nonatomic,strong) NSNumber * numberOffsetY_B;
 
-#pragma mark 隐私条款
-/**复选框未选中时图片*/
+#pragma mark 隐私条款勾选框
+/**勾选框未选中时图片*/
 @property (nonatomic,strong) UIImage *uncheckedImg;
-/**复选框选中时图片*/
+/**勾选框选中时图片*/
 @property (nonatomic,strong) UIImage *checkedImg;
-/**复选框大小（只能正方形）必须大于12*/
+/**勾选框大小（只能正方形）必须大于12*/
 @property (nonatomic,strong) NSNumber *checkboxWH;
-/**隐私条款（包括check框）的左右边距*/
+/**勾选框选X偏移量*/
+@property (nonatomic,strong) NSNumber *checkboxOffsetX;
+/**勾选框选Y偏移量，优先级高于checkboxOffsetY_B*/
+@property (nonatomic,strong) NSNumber *checkboxOffsetY;
+/**号勾选框选Y偏移量（基于底部）*/
+@property (nonatomic,strong) NSNumber *checkboxOffsetY_B;
+
+#pragma mark 隐私条款
+/**隐私条款的左右边距*/
 @property (nonatomic, strong) NSArray <NSNumber *> *appPrivacyOriginLR;
 /**隐私的内容模板：
  1、全句可自定义但必须保留"&&默认&&"字段表明SDK默认协议,否则设置不生效
@@ -93,8 +101,10 @@
 @property (nonatomic,strong) UIColor *privacyColor;
 /**隐私条款Y偏移量*/
 @property (nonatomic,strong) NSNumber * privacyOffsetY;
-/**隐私条款check框默认状态 默认:NO */
+/**隐私条款check框状态 默认:NO */
 @property (nonatomic,assign) BOOL privacyState;
+/**忽略隐私条款check框状态，登陆按钮一直可点击 默认:NO(不忽略) */
+@property (nonatomic,assign) BOOL ignorePrivacyState;
 /**隐私条款Y偏移量(注:此属性为与屏幕底部的距离)*/
 @property (nonatomic,strong) NSNumber *privacyOffsetY_B;
 /**隐私条款增加抖动效果 默认:NO */
@@ -138,6 +148,9 @@
 
 /**自定义窗口高-缩放系数(屏幕高乘以系数) 默认是0.5*/
 @property (nonatomic,assign) CGFloat scaleH;
+
+/**弹窗背景透明度 默认0.3*/
+@property (nonatomic,assign) CGFloat authWindowAlpha;
 
 #pragma mark -----------窗口模式2（边缘弹窗） UIPresentationController（可配合UAPresentationDirection动画使用）-----------
 /**此属性支持半弹框方式与authWindow不同（此方式为UIPresentationController）设置后自动隐藏切换按钮，该属性需要UIModalPresentationCustom（边缘弹窗模式下SDK默认设置）下生效*/

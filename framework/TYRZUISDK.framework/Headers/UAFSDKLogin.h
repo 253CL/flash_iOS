@@ -8,10 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-#define UAFSDKVERSION @"quick_login_iOS_5.9.2"
+#define UAFSDKVERSION @"quick_login_iOS_5.9.6"
 
 @class UAFCustomModel;
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^UAFContinueLoginEvent)(BOOL shouldContinueLogin);
+
+@protocol UAFSDKLoginDelegate <NSObject>
+
+@optional
+- (void)authRequestWillStart:(UAFContinueLoginEvent)loginEvent;
+- (void)authViewPrivacyCheckboxStateToggled:(BOOL)checked;
+
+@end
 
 @interface UAFSDKLogin : NSObject
 
@@ -27,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
  @return  @{NSString : NSNumber}
  */
 @property (nonatomic,readonly) NSDictionary<NSString *, NSNumber *> *networkInfo;
+
+/**
+授权登陆的delegate
+ */
+@property (nonatomic,weak) id<UAFSDKLoginDelegate> delegate;
 
 /**
  初始化SDK参数
@@ -86,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion 回调参数
 
  */
-- (void)ua_dismissViewControllerAnimated: (BOOL)flag completion: (void (^ __nullable)(void))completion;
+- (void)ua_dismissViewControllerAnimated:(BOOL)flag completion: (void (^ __nullable)(void))completion;
 
 @end
 
