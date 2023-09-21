@@ -178,6 +178,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 清除预取号缓存
 + (void)clearScripCache;
 
+/// 禁止日志上报SIM卡数量（默认禁止）
+/// @param allow YES：允许上报 NO：禁止上报
++ (void)allowSimCounts:(BOOL)allow;
+
 /// 禁止日志上报获取IP（默认允许）
 /// @param forbidden        YES:禁止 NO:允许
 + (void)forbiddenNonessentialIp:(BOOL)forbidden;

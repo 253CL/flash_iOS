@@ -194,7 +194,7 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 /// 描述文本 首部 default:"同意"
 @property(nonatomic,copy) NSString *clAppPrivacyNormalDesTextFirst;
-/// 描述文本二 default:"和"m
+/// 描述文本二 default:"和"
 @property(nonatomic,copy) NSString *clAppPrivacyNormalDesTextSecond;
 /// 描述文本三 default:"、"
 @property(nonatomic,copy) NSString *clAppPrivacyNormalDesTextThird;
