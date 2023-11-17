@@ -322,7 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 可设置背景色及添加控件
 @property(nonatomic,copy)void(^customAreaView)(UIView *customAreaView);
 /// 设置隐私协议弹窗
-@property(nonatomic,copy)void(^customPrivacyAlertView)(UIViewController *authPageVC);
+//@property(nonatomic,copy)void(^customPrivacyAlertView)(UIViewController *authPageVC);
 
 /**横竖屏*/
 /// 是否支持自动旋转 BOOL
