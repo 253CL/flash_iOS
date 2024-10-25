@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param appId            闪验后台申请的appId
 /// @param complete         预初始化回调block（⚠️在子线程中回调）
 + (void)initWithAppId:(NSString *)appId
-             complete:(nullable CLComplete)complete;
+             complete:(nullable NS_SWIFT_SENDABLE CLComplete)complete NS_SWIFT_ASYNC(2);
 
 ///**
 // 设置初始化超时 单位:s
@@ -123,32 +123,32 @@ NS_ASSUME_NONNULL_BEGIN
 /// 不建议在拉起授权页后调用
 /// 以 if (completeResult.error == nil) 为判断成功的依据，而非返回码
 /// @param complete         回调block（⚠️在子线程中回调）
-+ (void)preGetPhonenumber:(nullable CLComplete)complete;
++ (void)preGetPhonenumber:(nullable NS_SWIFT_SENDABLE CLComplete)complete NS_SWIFT_ASYNC(1);
 
 /// 一键登录拉起内置授权页&获取Token
 /// @param clUIConfigure    闪验授权页参数配置
 /// @param complete         回调block（⚠️在子线程中回调）
 + (void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
-                           complete:(nonnull CLComplete)complete;
+                           complete:(nonnull NS_SWIFT_SENDABLE CLComplete)complete NS_SWIFT_ASYNC(2);
 
 /// 一键登录拉起内置授权页&获取Token( 区分拉起授权页之前和之后的回调)
 /// @param clUIConfigure    闪验授权页参数配置
 /// @param openLoginAuthListener    拉起授权页监听：拉起授权页面成功或失败的回调，拉起成功或失败均触发。当拉起失败时，oneKeyLoginListener不会触发。此回调的内部触发时机是presentViewController:的完成block（⚠️在子线程中回调）
 /// @param oneKeyLoginListener      一键登录监听：拉起授权页成功后的后续操作回调，包括点击SDK内置的(非外部自定义)取消登录按钮，以及点击本机号码一键登录的回调。点击授权页自定义按钮不触发此回调（⚠️在子线程中回调）
 + (void)quickAuthLoginWithConfigure:(CLUIConfigure *)clUIConfigure
-              openLoginAuthListener:(CLComplete)openLoginAuthListener
-                oneKeyLoginListener:(CLComplete)oneKeyLoginListener;
+              openLoginAuthListener:(NS_SWIFT_SENDABLE CLComplete)openLoginAuthListener
+                oneKeyLoginListener:(NS_SWIFT_SENDABLE CLComplete)oneKeyLoginListener NS_SWIFT_ASYNC(3);
 
 /// 关闭授权页
 /// 注：内部实现为调用系统方法dismissViewcontroller:complete； 若授权页未拉起或已关闭，此方法调用无效果
 /// @param flag             dismissViewcontroller`Animated, default is YES.
 /// @param completion       dismissViewcontroller`completion（⚠️在子线程中回调。）
 + (void)finishAuthControllerAnimated:(BOOL)flag
-                          Completion:(void(^_Nullable)(void))completion;
+                          Completion:(void(^_Nullable NS_SWIFT_SENDABLE)(void))completion NS_SWIFT_ASYNC(2);
 
 /// 关闭授权页
 /// @param completion       关闭回调（⚠️在子线程中回调）
-+ (void)finishAuthControllerCompletion:(void(^_Nullable)(void))completion;
++ (void)finishAuthControllerCompletion:(void(^_Nullable NS_SWIFT_SENDABLE)(void))completion NS_SWIFT_ASYNC(1);
 
 /// 返回授权页内置导航控制器（生命周期与授权页一致）
 + (UINavigationController *)authNavigationController;
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 本机号认证获取token
 /// @param complete         本机号认证回调（⚠️在子线程中回调）
-+ (void)mobileCheckWithLocalPhoneNumberComplete:(CLComplete)complete;
++ (void)mobileCheckWithLocalPhoneNumberComplete:(NS_SWIFT_SENDABLE CLComplete)complete NS_SWIFT_ASYNC(1);
 
 /// 模式控制台日志输出控制（默认关闭）
 /// @param enable           开关参数
