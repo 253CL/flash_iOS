@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   # s.source_files  = 'framework/*.{bundle}'
-  s.vendored_frameworks =  'framework/*.{framework}'
+  s.vendored_frameworks =  'framework/*.{xcframework}'
   s.resource = 'framework/*.{bundle}'
 
   # s.public_header_files = "Classes/**/*.h"
