@@ -7,7 +7,7 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-http://flash.253.com
+[document](https://doc.chuanglan.com/document/J2HX4NCU9PXMSX7Z)
 
 ## Requirements
 
