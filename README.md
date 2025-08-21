@@ -1,7 +1,7 @@
 # CL_ShanYanSDK
 
 [![CI Status](https://img.shields.io/travis/wanglijun311@gmail.com/CL_ShanYanSDK.svg?style=flat)](https://travis-ci.org/wanglijun311@gmail.com/CL_ShanYanSDK)
-[![Version](https://img.shields.io/cocoapods/v/CL_ShanYanSDK.svg?style=flat)](https://cocoapods.org/pods/CL_ShanYanSDK)
+[![Version](https://img.shields.io/badge/pod-2.3.7.0-blue.svg)](https://cocoapods.org/pods/CL_ShanYanSDK)
 [![License](https://img.shields.io/cocoapods/l/CL_ShanYanSDK.svg?style=flat)](https://cocoapods.org/pods/CL_ShanYanSDK)
 [![Platform](https://img.shields.io/cocoapods/p/CL_ShanYanSDK.svg?style=flat)](https://cocoapods.org/pods/CL_ShanYanSDK)
 
