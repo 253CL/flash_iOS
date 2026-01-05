@@ -190,22 +190,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param forbidden        YES:禁止上报 NO:允许上报
 + (void)forbiddenFullLogReport:(BOOL)forbidden;
 
-/// 禁止获取设备标识IDFV(默认开启)  此接口需要在初始化之前调用,否则配置不生效
-/// @param forbidden        YES:禁止上报 NO:允许上报
-+ (void)forbiddenSafetyRiskControl:(BOOL)forbidden;
-
-/// 禁止获取设备硬件信息默认开启)  此接口需要在初始化之前调用,否则配置不生效
-/// @param forbidden        YES:禁止上报 NO:允许上报
-+ (void)forbiddenDeviceInfo:(BOOL)forbidden;
-
-/// 禁止获取网络信息（默认开启)  此接口需要在初始化之前调用,否则配置不生效
-/// @param forbidden        YES:禁止上报 NO:允许上报
-+(void)forbiddenNetworkInfo:(BOOL)forbidden;
-
-/// 禁止获取sim卡信息（默认开启)  此接口需要在初始化之前调用,否则配置不生效
-/// @param forbidden        YES:禁止上报 NO:允许上报
-+(void)forbiddenSimcardInfo:(BOOL)forbidden;
-
 /// 当前环境是否满足预取号
 /// 使用xcode14.3+在iOS16.4+返回YES时可能不准确
 + (BOOL)checkAuthEnable;
