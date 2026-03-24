@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/CLShanYanSDKManager.h</key>
 		<data>
-		bf8RqykVJijT6Nt9cZzn7lgUv5o=
+		UjlgAhhg1JH7fr6l2PojTtfkAC8=
 		</data>
 		<key>Headers/CLUIConfigure.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qAs1vLt6IzGkMI8Jz4DTFGXboME=
+		NwZwYmKEmm+zmeF5RhspthNuATw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -37,10 +37,6 @@
 	<dict>
 		<key>Headers/CLCompleteResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			z0GzA6ciVQZ3YDl6F3G/WHY4+Dc=
-			</data>
 			<key>hash2</key>
 			<data>
 			OxN+UOFQ6qacOoB8SsGQXX27eOzufVyfyQWi1h0ftKA=
@@ -48,10 +44,6 @@
 		</dict>
 		<key>Headers/CLFaceIDTool.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vjVip4otZfKqK40Kxzg/ZbHgRLM=
-			</data>
 			<key>hash2</key>
 			<data>
 			KnlNMapfaNQXzZSyh8pekQhNqHCQz5Cm7oBLSt0rCNM=
@@ -59,21 +51,13 @@
 		</dict>
 		<key>Headers/CLShanYanSDKManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bf8RqykVJijT6Nt9cZzn7lgUv5o=
-			</data>
 			<key>hash2</key>
 			<data>
-			lYrAJYQcGwrGMyzEqS9+0KvEZZi7RGh0+vigjA6VeIs=
+			qtOHhVYIAEEWCtbRMtR1lOC2ZsVk1MSViEt3uEbBfHk=
 			</data>
 		</dict>
 		<key>Headers/CLUIConfigure.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GyCUcOb6On2wHuBncccHyK+6qUk=
-			</data>
 			<key>hash2</key>
 			<data>
 			Z4xA3Exsoxl97ETV1S/bObTkbusybVGxFb6UnJvEObY=
@@ -81,10 +65,6 @@
 		</dict>
 		<key>Headers/CL_ShanYanSDK.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			x53jHFEZKlEBd6JNo5UYh5a1ptw=
-			</data>
 			<key>hash2</key>
 			<data>
 			vOiaHfAjoItR/+GkVS7TgfnWPOF4tqnSkzefBCwFCLI=
@@ -92,10 +72,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3CKt+ytC2+8HXH7XZwlfaBw+Xx8=
-			</data>
 			<key>hash2</key>
 			<data>
 			SYKy7n+kncUeuLxiingWPgjd4OoUeA29WzxbOH1wY0Q=
