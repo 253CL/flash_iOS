@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>20260402-205327.png</key>
-		<data>
-		ne5laU4K7UHG051oVJUKfX1Pu2k=
-		</data>
 		<key>Headers/CLCompleteResult.h</key>
 		<data>
 		z0GzA6ciVQZ3YDl6F3G/WHY4+Dc=
@@ -39,13 +35,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>20260402-205327.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			5PPdpSPzivGHvy15KhCxGGPlWTu5b5F2ff5sBQE8UY4=
-			</data>
-		</dict>
 		<key>Headers/CLCompleteResult.h</key>
 		<dict>
 			<key>hash2</key>
